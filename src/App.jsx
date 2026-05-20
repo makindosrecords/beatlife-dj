@@ -8,11 +8,12 @@ import {
 } from 'lucide-react';
 
 /**
- * BEATLIFE: CINEMATIC EDITORIAL DEPLOYMENT (V11.7)
+ * BEATLIFE: CINEMATIC EDITORIAL DEPLOYMENT (V11.9)
  * --------------------------------------
  * UI Focus: Performance and Accessibility optimized web experience.
  * Fully compliant with WCAG AA contrast rules, reflow-free scroll observation,
- * deferred video loading, LCP preloads, and sequential heading structures.
+ * instant hero video loading, LCP preloads, and sequential heading structures.
+ * Asset Upgrades: Swapped key raster images to ultra-compressed AVIF format.
  */
 
 // Custom Inline SVG Icons for stability
@@ -70,9 +71,6 @@ const App = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
-  // Performance Optimization: Deferred Hero Video Load State
-  const [videoSrc, setVideoSrc] = useState('');
-
   const heroVideoRef = useRef(null);
   const showcaseVideoRef = useRef(null);
 
@@ -89,14 +87,18 @@ const App = () => {
     SCHOOL_YT: '5UHLuZV2HeA',
     CORPORATE_YT: 'KshcvRshCjA',
     BEFORE_BOOK_YT: '09HSJt9kGGM',
-    DUSTIN_STORY: '/images/My-Story.jpg_1675286438-scaled.jpeg',
-    DUSTIN_PROFILE: '/images/Facetune_17-08-2022-13-34-48.jpeg',
+    // Upgraded to AVIF
+    DUSTIN_STORY: '/images/My-Story.jpg_1675286438-scaled.avif',
+    DUSTIN_PROFILE: '/images/Facetune_17-08-2022-13-34-48.avif',
     ICONS: {
       SINGLE: '/images/headset1.png',
       DOUBLE: '/images/headset2.png',
       TRIPLE: '/images/headset3.png'
     }
   };
+
+  // Performance Optimization: Initialized directly to your optimized 2MB hero video
+  const [videoSrc, setVideoSrc] = useState(ASSETS.HERO_VIDEO);
 
   // ADVANCED CATEGORIZED INTERACTIVE GALLERY DATA (Optimized size and WebP compression variables)
   const GALLERY_ITEMS = [
@@ -184,26 +186,10 @@ const App = () => {
     document.head.appendChild(preconnectYT);
     document.head.appendChild(dnsPrefetchYT);
 
-    // 4. Defer heavy background video payload to eliminate FCP/LCP network blockage
-    let timer;
-    const handlePageLoad = () => {
-      timer = setTimeout(() => {
-        setVideoSrc(ASSETS.HERO_VIDEO);
-      }, 3000);
-    };
-
-    if (document.readyState === 'complete') {
-      handlePageLoad();
-    } else {
-      window.addEventListener('load', handlePageLoad);
-    }
-
     return () => {
       document.head.removeChild(preloadLogo);
       document.head.removeChild(preconnectYT);
       document.head.removeChild(dnsPrefetchYT);
-      window.removeEventListener('load', handlePageLoad);
-      if (timer) clearTimeout(timer);
     };
   }, []);
 
@@ -432,11 +418,11 @@ A fun and interactive way for guests to capture memories throughout the night.`
 
       {/* --- 100VH CINEMATIC HERO --- */}
       <header className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Deferred Video source load to satisfy mobile performance indices */}
+        {/* Instant high-performance loop loading since payload is highly compressed to 2MB */}
         <video 
           ref={heroVideoRef}
           autoPlay loop muted playsInline
-          src={videoSrc || undefined}
+          src={videoSrc}
           className="absolute inset-0 w-full h-full object-cover scale-[1.01] transition-opacity duration-1000"
           style={{ opacity: videoSrc ? 1 : 0 }}
           aria-hidden="true"
@@ -582,7 +568,7 @@ A fun and interactive way for guests to capture memories throughout the night.`
                     </div>
                   </div>
 
-                  {/* Title position with crisp legibility focus */}
+                  {/* Title position with visual focus */}
                   <div className="absolute bottom-6 left-8 right-8 flex justify-start items-end z-10">
                     <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic leading-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">{service.title}</h3>
                   </div>
@@ -625,7 +611,7 @@ A fun and interactive way for guests to capture memories throughout the night.`
                     <div className="w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center p-4 shadow-2xl shrink-0 mt-2 transition-all duration-500 hover:scale-110 hover:border-cyan-500/80 hover:rotate-6 hover:shadow-[0_0_35px_rgba(34,211,238,0.25)] group/modalset">
                       <img 
                         src={activeService.headset} 
-                        className="w-full h-full object-contain filter drop-shadow-[0_6px_16px_rgba(34,211,238,0.3)] transition-transform duration-500 group-hover/modalset:scale-105" 
+                        className="w-full h-full object-contain filter drop-shadow-[0_6px_16px_rgba(34,211,238,0.3)]" 
                         alt={`${activeService.title} headphone emblem icon`} 
                         width="112"
                         height="112"
