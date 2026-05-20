@@ -8,11 +8,11 @@ import {
 } from 'lucide-react';
 
 /**
- * BEATLIFE: CINEMATIC EDITORIAL DEPLOYMENT (V11.6)
+ * BEATLIFE: CINEMATIC EDITORIAL DEPLOYMENT (V11.7)
  * --------------------------------------
  * UI Focus: Performance and Accessibility optimized web experience.
- * Fully compliant with WCAG AA contrast rules, reflow-free Intersection Observer tracking,
- * deferred video loading, LCP priority preloads, and sequential heading structures.
+ * Fully compliant with WCAG AA contrast rules, reflow-free scroll observation,
+ * deferred video loading, LCP preloads, and sequential heading structures.
  */
 
 // Custom Inline SVG Icons for stability
@@ -98,53 +98,53 @@ const App = () => {
     }
   };
 
-  // ADVANCED CATEGORIZED INTERACTIVE GALLERY DATA
+  // ADVANCED CATEGORIZED INTERACTIVE GALLERY DATA (Optimized size and WebP compression variables)
   const GALLERY_ITEMS = [
     {
       category: 'weddings',
-      url: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=60',
       title: 'Grand Wedding Reception',
       desc: 'Dustin Anderson packing the dance floor at a grand ballroom celebration.'
     },
     {
       category: 'weddings',
-      url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=60',
       title: 'Dancing On The Clouds',
       desc: 'Premium low-lying fog enhancements for a magical first dance.'
     },
     {
       category: 'corporate',
-      url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=500&q=60',
       title: 'Polished Corporate Gala',
       desc: 'Elegant background design and timeline management for executive brands.'
     },
     {
       category: 'lighting',
-      url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=60',
       title: 'Intelligent Beam Show',
       desc: 'Custom DMX programming synchronizing with the master performance set.'
     },
     {
       category: 'lighting',
-      url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=500&q=60',
       title: 'Custom Monogram Projection',
       desc: 'Personalized monogram and gobo designs illuminated elegantly.'
     },
     {
       category: 'equipment',
-      url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=60',
       title: 'Studio-Grade Control Booth',
       desc: 'High-fidelity Pioneer hardware configurations for clean, real live mixing.'
     },
     {
       category: 'dustin',
-      url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=60',
       title: 'Dustin Hosting Live',
       desc: 'Dustin Anderson bridging deep energy with personal, authentic connections.'
     },
     {
       category: 'other',
-      url: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80',
+      url: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=60',
       title: 'Resort Poolside Interactive Game',
       desc: 'Central Florida resort family programming, props, and active games.'
     }
@@ -164,7 +164,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // 2. Preload LCP critical logo and inject Tailwind CSS
+    // 2. Preload LCP critical logo
     const preloadLogo = document.createElement('link');
     preloadLogo.rel = 'preload';
     preloadLogo.as = 'image';
@@ -172,16 +172,24 @@ const App = () => {
     preloadLogo.fetchPriority = 'high';
     document.head.appendChild(preloadLogo);
 
-    if (!document.getElementById('tailwind-cdn')) {
-      const script = document.createElement('script');
-      script.id = 'tailwind-cdn';
-      script.src = 'https://cdn.tailwindcss.com';
-      document.head.appendChild(script);
-    }
+    // 3. Inject Preconnect endpoints to optimize LCP discovery delay
+    const preconnectYT = document.createElement('link');
+    preconnectYT.rel = 'preconnect';
+    preconnectYT.href = 'https://img.youtube.com';
 
-    // 3. Defer heavy background video payload to eliminate FCP/LCP network blockage
+    const dnsPrefetchYT = document.createElement('link');
+    dnsPrefetchYT.rel = 'dns-prefetch';
+    dnsPrefetchYT.href = 'https://img.youtube.com';
+
+    document.head.appendChild(preconnectYT);
+    document.head.appendChild(dnsPrefetchYT);
+
+    // 4. Defer heavy background video payload to eliminate FCP/LCP network blockage
+    let timer;
     const handlePageLoad = () => {
-      setVideoSrc(ASSETS.HERO_VIDEO);
+      timer = setTimeout(() => {
+        setVideoSrc(ASSETS.HERO_VIDEO);
+      }, 3000);
     };
 
     if (document.readyState === 'complete') {
@@ -192,7 +200,10 @@ const App = () => {
 
     return () => {
       document.head.removeChild(preloadLogo);
+      document.head.removeChild(preconnectYT);
+      document.head.removeChild(dnsPrefetchYT);
       window.removeEventListener('load', handlePageLoad);
+      if (timer) clearTimeout(timer);
     };
   }, []);
 
@@ -329,16 +340,11 @@ A fun and interactive way for guests to capture memories throughout the night.`
     }
   ];
 
+  // Optimize scrolling offset reflows using native browser behavior without querying geometry parameters in JS
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMenuOpen(false);
   };
@@ -467,6 +473,7 @@ A fun and interactive way for guests to capture memories throughout the night.`
             </p>
 
             <div className="flex flex-wrap gap-4 md:gap-8 justify-center pb-6">
+              {/* BUTTON POSITIONS SWITCHED */}
               <button 
                 onClick={() => scrollToSection('showcase')}
                 className="group flex items-center gap-4 px-6 py-4 text-white font-black uppercase text-[10px] md:text-xs tracking-widest transition-all hover:text-cyan-400"
@@ -486,13 +493,14 @@ A fun and interactive way for guests to capture memories throughout the night.`
           </div>
         </div>
 
+        {/* SCROLL TEXT REMOVED */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
           <div className="w-px h-12 bg-white/50 animate-pulse"></div>
         </div>
       </header>
 
       {/* --- THEATER MODE INTRODUCTION --- */}
-      <section id="showcase" className="py-32 bg-[#0a0a0a] px-6">
+      <section id="showcase" className="scroll-mt-24 py-32 bg-[#0a0a0a] px-6">
         <div className="max-w-7xl mx-auto flex flex-col items-center">
           <div className="text-center mb-16 space-y-4">
              <div className="inline-flex items-center gap-4 text-cyan-500">
@@ -530,7 +538,7 @@ A fun and interactive way for guests to capture memories throughout the night.`
       </section>
 
       {/* --- REFINED UNIFORM SERVICES SECTION (BRIGHTER MODE) --- */}
-      <section id="services" className="py-32 bg-black px-6">
+      <section id="services" className="scroll-mt-24 py-32 bg-black px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24 space-y-4">
              <div className="inline-flex items-center gap-3 text-cyan-500">
@@ -699,7 +707,7 @@ A fun and interactive way for guests to capture memories throughout the night.`
       })()}
 
       {/* --- DISTINCT HEART TIERS SECTION --- */}
-      <section id="tiers" className="py-32 bg-[#0a0a0a] px-6 border-y border-white/5">
+      <section id="tiers" className="scroll-mt-24 py-32 bg-[#0a0a0a] px-6 border-y border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24 space-y-4">
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Heart <span className="text-cyan-500 underline decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">Tiers.</span></h2>
@@ -809,7 +817,7 @@ A fun and interactive way for guests to capture memories throughout the night.`
       </section>
 
       {/* --- RECONSTRUCTED COMPANY SECTION --- */}
-      <section id="company" className="py-32 bg-black px-6 border-b border-white/5">
+      <section id="company" className="scroll-mt-24 py-32 bg-black px-6 border-b border-white/5">
         <div className="max-w-7xl mx-auto space-y-24">
           
           {/* Section Heading */}
@@ -1010,7 +1018,7 @@ A fun and interactive way for guests to capture memories throughout the night.`
       )}
 
       {/* --- UNIFIED SINGLE PAGE ABOUT SECTION (More compact, no scrolling fatigue) --- */}
-      <section id="about" className="py-32 px-6 bg-[#050505] border-b border-white/5">
+      <section id="about" className="scroll-mt-24 py-32 px-6 bg-[#050505] border-b border-white/5">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           
           {/* Left Column: Dustin Profile Media Card */}
@@ -1063,7 +1071,7 @@ A fun and interactive way for guests to capture memories throughout the night.`
       </section>
 
       {/* --- TESTIMONIALS SECTION --- */}
-      <section id="reviews" className="py-32 bg-[#0a0a0a] px-6">
+      <section id="reviews" className="scroll-mt-24 py-32 bg-[#0a0a0a] px-6">
         <div className="max-w-7xl mx-auto space-y-24">
           
           {/* Section Headings */}
