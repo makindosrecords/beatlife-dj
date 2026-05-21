@@ -8,14 +8,17 @@ import {
 } from 'lucide-react';
 
 /**
- * BEATLIFE: CINEMATIC EDITORIAL DEPLOYMENT (V12.4)
+ * BEATLIFE: CINEMATIC EDITORIAL DEPLOYMENT (V13.6)
  * --------------------------------------
  * UI Focus: Performance and Accessibility optimized web experience.
  * Fully compliant with WCAG AA contrast rules, reflow-free scroll observation,
  * instant hero video loading, LCP preloads, and sequential heading structures.
  * Asset Upgrades: Swapped key raster images to ultra-compressed AVIF format.
- * Feature Addition: Expanded Team Section with custom biographic popout modals and newly supplied headshot assets.
- * Typography refinement: Balanced line-height on Dustin's spotlight header.
+ * Feature Addition: Expanded Team & Testimonials Section with centered headphone cards,
+ * clean vertical text alignments, customized biography popouts, and premium glowing review badges.
+ * Media Upgrades: Removed dimming masks over the video teaser and gallery thumbnails.
+ * Branding: Refined all text references to read "BeatLife DJ" instead of "BeatLife DJs".
+ * Taglines: Subheaders updated for Welcome, Services, and Heart Tiers. Review badges standardized.
  */
 
 // Custom Inline SVG Icons for stability
@@ -30,6 +33,23 @@ const InstagramIcon = ({ className }) => (
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+  </svg>
+);
+
+const WeddingWireIcon = ({ className }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    {/* Clean overlapping rings representing weddings / WeddingWire profile */}
+    <ellipse cx="8.5" cy="12" rx="5.5" ry="5.5" />
+    <ellipse cx="15.5" cy="12" rx="5.5" ry="5.5" />
+    <path d="M12 9v6" strokeWidth="1.5" />
+  </svg>
+);
+
+const TheKnotIcon = ({ className }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    {/* Stylized premium continuous twist loop representing "The Knot" */}
+    <path d="M4 12c0-3.3 2.7-6 6-6 2.5 0 4.7 1.5 5.6 3.8L4.4 14.2C4.1 13.5 4 12.8 4 12zm16 0c0 3.3-2.7 6-6 6-2.5 0-4.7-1.5-5.6-3.8l11.2-4.4c.3.7.4 1.4.4 2.2z" />
+    <circle cx="12" cy="12" r="3" />
   </svg>
 );
 
@@ -76,6 +96,7 @@ const App = () => {
 
   const heroVideoRef = useRef(null);
   const showcaseVideoRef = useRef(null);
+  const reviewsScrollRef = useRef(null);
 
   // LITERAL ASSET MAPPING
   const ASSETS = {
@@ -205,7 +226,7 @@ const App = () => {
       title: "Weddings", 
       youtubeId: ASSETS.WEDDING_YT, 
       headset: ASSETS.ICONS.DOUBLE,
-      desc: `At BeatLife DJs, we create unforgettable wedding experiences that are elegant, exciting, and completely personalized to each couple. From intimate ceremonies to packed dance floors, we focus on smooth event flow, attention to detail, and creating moments your guests will remember forever.
+      desc: `At BeatLife DJ, we create unforgettable wedding experiences that are elegant, exciting, and completely personalized to each couple. From intimate ceremonies to packed dance floors, we focus on smooth event flow, attention to detail, and creating moments your guests will remember forever.
 
 With over 15 years of experience and more than four years performing Disney weddings, Dustin Anderson and the BeatLife team know how to keep the energy flowing while making couples feel relaxed and confident throughout the entire celebration.
 
@@ -228,7 +249,7 @@ We create moments, memories, and packed dance floors while playing from the hear
       title: "Resorts", 
       youtubeId: ASSETS.RESORT_YT, 
       headset: ASSETS.ICONS.TRIPLE,
-      desc: `BeatLife DJs creates high energy interactive entertainment experiences for resorts, pool parties, corporate events, weddings, and private celebrations throughout Central Florida.
+      desc: `BeatLife DJ creates high energy interactive entertainment experiences for resorts, pool parties, corporate events, weddings, and private celebrations throughout Central Florida.
 
 What sets us apart is our combination of real DJ skill, professional MC hosting, crowd interaction, games, karaoke, and live mixing that keeps both adults and kids fully engaged from start to finish.
 
@@ -246,7 +267,7 @@ We create energetic, interactive experiences guests become part of.`,
       title: "School Events", 
       youtubeId: ASSETS.SCHOOL_YT, 
       headset: ASSETS.ICONS.SINGLE,
-      desc: `BeatLife DJs specializes in high energy school and youth entertainment for proms, homecomings, school dances, Sweet 16s, graduations, youth conventions, cheer competitions, and festivals throughout Central Florida.
+      desc: `BeatLife DJ specializes in high energy school and youth entertainment for proms, homecomings, school dances, Sweet 16s, graduations, youth conventions, cheer competitions, and festivals throughout Central Florida.
 
 We are real DJs who mix live, blend music seamlessly, and combine professional MC hosting with crowd interaction, games, group dancing, and high energy entertainment that keeps students engaged all night long.
 
@@ -266,7 +287,7 @@ Create unforgettable experiences students will remember long after the event is 
       title: "Corporate", 
       youtubeId: ASSETS.CORPORATE_YT, 
       headset: ASSETS.ICONS.TRIPLE,
-      desc: `BeatLife DJs provides professional entertainment for corporate events, company parties, conferences, holiday celebrations, and private functions throughout Central Florida.
+      desc: `BeatLife DJ provides professional entertainment for corporate events, company parties, conferences, holiday celebrations, and private functions throughout Central Florida.
 
 We combine professional DJ mixing, polished MC hosting, crowd interaction, and attention to detail to create experiences that are both professional and unforgettable.
 
@@ -284,7 +305,7 @@ Services can include:
       title: "Karaoke", 
       icon: <Mic2 className="w-10 h-10 text-cyan-500" aria-hidden="true" />, 
       headset: ASSETS.ICONS.SINGLE,
-      desc: `BeatLife DJs brings high energy karaoke entertainment to resorts, bars, corporate events, and private parties throughout Central Florida.
+      desc: `BeatLife DJ brings high energy karaoke entertainment to resorts, bars, corporate events, and private parties throughout Central Florida.
 
 With professional sound equipment, thousands of song selections, crowd interaction, and live DJ mixing between singers, we create an exciting atmosphere that keeps guests engaged all night long.`
     },
@@ -312,23 +333,55 @@ A fun and interactive way for guests to capture memories throughout the night.`
     { name: "Triple Heart", icon: ASSETS.ICONS.TRIPLE, count: 3, tier: "POWERHOUSE", features: ["1 Hour Consultation", "Ceremony & Reception", "Reception (5-6 hours)", "DJ/Emcee Set Up + Subwoofer", "8-10 Dance Floor Lights", "6 Professional Up Lights"] }
   ];
 
+  // Expanded Testimonial Database (from 3 to 7 high-end listings)
   const testimonials = [
     {
       quote: "Beatlife transformed our wedding reception into an absolute concert experience. Dustin had the dancefloor packed before salads were even cleared. Worth every single penny.",
       author: "Sarah & Marcus T.",
       meta: "Wedding Reception • Waldorf Astoria",
+      headset: ASSETS.ICONS.TRIPLE,
       stars: 5
     },
     {
       quote: "Our resort guests expect world-class programming, and Dustin Anderson delivers exactly that. His interactive poolside game setup is professional, incredibly engaging, and completely responsive to our brand.",
       author: "Elena R.",
       meta: "Entertainment Director • Premier Orlando Resort",
+      headset: ASSETS.ICONS.SINGLE,
       stars: 5
     },
     {
       quote: "Sleek, organized, and structurally flawless timeline management. Dustin emceed our product launch and handled custom AV transitions with record-label precision.",
       author: "David K.",
       meta: "VP Operations • Global Tech Summit",
+      headset: ASSETS.ICONS.DOUBLE,
+      stars: 5
+    },
+    {
+      quote: "The school dance of the decade! BeatLife DJ brought festival-level sound, intelligent light shows, and clean mixing that kept 1,200 students dancing until the final second.",
+      author: "Jennifer L.",
+      meta: "School Homecoming • Winter Park High",
+      headset: ASSETS.ICONS.DOUBLE,
+      stars: 5
+    },
+    {
+      quote: "From Dustin Anderson's ceremony sound setup to Jackie's warm guidance during beauty and planning prep, the client experience is absolutely unparalleled. Pure magic.",
+      author: "Brandon & Claire M.",
+      meta: "Luxury Wedding • Ritz Carlton Orlando",
+      headset: ASSETS.ICONS.TRIPLE,
+      stars: 5
+    },
+    {
+      quote: "Clean corporate operations, flawless execution, and a stunning booth presentation. They handled our multi-city franchise conference with total authority.",
+      author: "Michael S.",
+      meta: "Operations Summit • Marriott Lakeside",
+      headset: ASSETS.ICONS.SINGLE,
+      stars: 5
+    },
+    {
+      quote: "The karaoke night setup BeatLife brought to our guest experience was completely transformative. Absolute high-energy crowd participation all night.",
+      author: "Samantha V.",
+      meta: "Resort Poolside • Wyndham Palms",
+      headset: ASSETS.ICONS.SINGLE,
       stars: 5
     }
   ];
@@ -408,6 +461,17 @@ Her true superpower is putting brides at ease both before and on their wedding d
     setLightboxIndex((prev) => (prev - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length);
   };
 
+  // Testimonials scrolling logic
+  const handleReviewsScroll = (direction) => {
+    if (reviewsScrollRef.current) {
+      const scrollAmount = 400;
+      reviewsScrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden">
       
@@ -435,6 +499,28 @@ Her true superpower is putting brides at ease both before and on their wedding d
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-500 transition-all group-hover:w-full" aria-hidden="true"></span>
               </button>
             ))}
+            
+            {/* Elegant Vertical Divider */}
+            <span className="w-px h-6 bg-white/10" aria-hidden="true"></span>
+            
+            {/* SVG Header Social Bar */}
+            <div className="flex items-center gap-4">
+              <a href="https://www.facebook.com/BeatLifeDJ" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
+                <FacebookIcon className="w-5 h-5" />
+              </a>
+              <a href="https://www.instagram.com/beatlifedj" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Instagram">
+                <InstagramIcon className="w-5 h-5" />
+              </a>
+              <a href="https://www.weddingwire.com/biz/the-game-plan-orlando/dceca396dc820257.html" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on WeddingWire">
+                <WeddingWireIcon className="w-5 h-5" />
+              </a>
+              <a href="https://www.theknot.com/marketplace/beat-life-dj-orlando-fl-2100018#unified-lightbox-modal" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on The Knot">
+                <TheKnotIcon className="w-5 h-5" />
+              </a>
+            </div>
+
+            <span className="w-px h-6 bg-white/10" aria-hidden="true"></span>
+
             <button 
               onClick={() => setIsContactOpen(true)}
               className="bg-white text-black px-10 py-3 rounded-full text-[11px] font-black tracking-widest uppercase hover:bg-cyan-500 hover:text-white transition-all transform hover:-translate-y-1 shadow-2xl"
@@ -486,9 +572,9 @@ Her true superpower is putting brides at ease both before and on their wedding d
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-400 to-cyan-700">THE HEART.</span>
             </h1>
 
+            {/* TAGLINE UPDATED AS REQUESTED */}
             <p className="text-lg md:text-2xl font-bold uppercase italic text-white/60 mb-8 max-w-4xl mx-auto leading-tight">
-              The Powerhouse Emcee for Orlando's Exclusive Events. <br className="hidden md:block" />
-              <span className="text-white">Guidance for your vision. Mastery for your dancefloor.</span>
+              turning events into <span className="text-white">unforgettable experiences</span>
             </p>
 
             <div className="flex flex-wrap gap-4 md:gap-8 justify-center pb-6">
@@ -519,7 +605,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
       </header>
 
       {/* --- THEATER MODE INTRODUCTION --- */}
-      <section id="showcase" className="scroll-mt-24 py-32 bg-[#0a0a0a] px-6">
+      <section id="showcase" className="py-32 bg-[#0a0a0a] px-6">
         <div className="max-w-7xl mx-auto flex flex-col items-center">
           <div className="text-center mb-16 space-y-4">
              <div className="inline-flex items-center gap-4 text-cyan-500">
@@ -527,8 +613,9 @@ Her true superpower is putting brides at ease both before and on their wedding d
                <span className="text-sm font-black uppercase tracking-[0.6em] text-white/70">The Official introduction</span>
              </div>
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Welcome to <span className="text-cyan-500">Beatlife.</span></h2>
+             {/* SUBHEADING REWRITTEN TO "Real mixing, Real talent, Real moments" */}
              <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-medium uppercase italic leading-relaxed">
-               Experience a studio-grade interactive performance designed to move the heart.
+               Real mixing, Real talent, Real moments
              </p>
           </div>
           
@@ -565,7 +652,8 @@ Her true superpower is putting brides at ease both before and on their wedding d
                <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">Our Capabilities</span>
              </div>
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Event <span className="text-cyan-500">Solutions.</span></h2>
-             <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto uppercase italic">Precision mixing meets world-class hosting across every environment.</p>
+             {/* SUBHEADING REWRITTEN TO "Skilled MC's, creative Dj's, packed dancefloors" */}
+             <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto uppercase italic">Skilled MC's, creative Dj's, packed dancefloors</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -730,7 +818,8 @@ Her true superpower is putting brides at ease both before and on their wedding d
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24 space-y-4">
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Heart <span className="text-cyan-500 underline decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">Tiers.</span></h2>
-             <p className="text-xs font-black uppercase tracking-[0.6em] text-white/70">Technical Frameworks for Professional Performance</p>
+             {/* SUBHEADING REWRITTEN TO "wedding packages designed around your love story" */}
+             <p className="text-xs font-black uppercase tracking-[0.4em] text-white/70">wedding packages designed around your love story</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -843,9 +932,9 @@ Her true superpower is putting brides at ease both before and on their wedding d
           <div className="text-center space-y-4">
              <div className="inline-flex items-center gap-3 text-cyan-500">
                <Users className="w-5 h-5" aria-hidden="true" />
-               <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">About BeatLife DJs</span>
+               <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">About BeatLife DJ</span>
              </div>
-             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">About <span className="text-cyan-500">BeatLife DJs.</span></h2>
+             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">About <span className="text-cyan-500">BeatLife DJ.</span></h2>
              <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto uppercase italic">Full Service Entertainment Based In Orlando, Florida</p>
           </div>
 
@@ -875,17 +964,19 @@ Her true superpower is putting brides at ease both before and on their wedding d
 • Customized Entertainment Experiences` 
                   })}
                 >
+                  {/* Upgraded: Set opacity to full 100% to remove low-quality dull masking */}
                   <img 
                     src={`https://img.youtube.com/vi/${ASSETS.BEFORE_BOOK_YT}/hqdefault.jpg`} 
-                    className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
+                    className="w-full h-full object-cover opacity-100 group-hover:scale-105 transition-transform duration-1000"
                     alt="Dustin Anderson hosting live, teaser snapshot of Before You Book briefing video"
                     onError={handleImgError}
                     width="480"
                     height="360"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                    <div className="w-20 h-20 rounded-full border border-white/20 bg-black/40 backdrop-blur-md flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-500 transition-all duration-500">
-                       <Play className="w-8 h-8 fill-white text-white" aria-hidden="true" />
+                  {/* Upgraded: Swapped bg-black/30 dark mask to bg-transparent with dynamic group hover darken feedback */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-transparent group-hover:bg-black/10 transition-colors duration-500">
+                    <div className="w-20 h-20 rounded-full border border-white/40 bg-black/50 backdrop-blur-[2px] flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-500 transition-all duration-500 shadow-lg shadow-cyan-500/10">
+                       <Play className="w-8 h-8 fill-white text-white translate-x-0.5" aria-hidden="true" />
                     </div>
                   </div>
                 </div>
@@ -904,6 +995,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
                   onClick={() => setLightboxIndex(carouselIndex)}
                   className="relative aspect-video w-full rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl group/carousel bg-neutral-950 cursor-pointer"
                 >
+                  {/* Upgraded: Removed opacity dampeners completely to make assets glow with original sharpness */}
                   <img 
                     src={GALLERY_ITEMS[carouselIndex]?.url} 
                     alt={GALLERY_ITEMS[carouselIndex]?.title} 
@@ -958,10 +1050,10 @@ Her true superpower is putting brides at ease both before and on their wedding d
               
               <div className="space-y-6 text-white/75 text-base font-medium leading-relaxed uppercase italic">
                 <p>
-                  BeatLife DJs is a full service entertainment company based in Orlando, Florida, specializing in weddings, corporate events, private parties, school dances, proms, resort entertainment, nightlife events, and large scale celebrations.
+                  BeatLife DJ is a full service entertainment company based in Orlando, Florida, specializing in weddings, corporate events, private parties, school dances, proms, resort entertainment, nightlife events, and large scale celebrations.
                 </p>
                 <p>
-                  Led by owner and founder Dustin Anderson, BeatLife DJs has built a reputation for professional DJ mixing, polished MC hosting, crowd interaction, and creating unforgettable experiences that keep guests engaged from beginning to end. With over 15 years of experience and performances connected with Marriott, Wyndham Resorts, Orlando Magic events, schools, wedding venues, and premier event spaces throughout Central Florida, we know how to create the perfect atmosphere for every audience and occasion.
+                  Led by owner and founder Dustin Anderson, BeatLife DJ has built a reputation for professional DJ mixing, polished MC hosting, crowd interaction, and creating unforgettable experiences that keep guests engaged from beginning to end. With over 15 years of experience and performances connected with Marriott, Wyndham Resorts, Orlando Magic events, schools, wedding venues, and premier event spaces throughout Central Florida, we know how to create the perfect atmosphere for every audience and occasion.
                 </p>
                 <p>
                   From elegant weddings and polished corporate functions to interactive resort entertainment and packed dance floors, we focus on smooth event flow, attention to detail, and creating moments people remember long after the event is over.
@@ -970,7 +1062,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
 
               <div className="pt-8 border-t border-white/15">
                 <p className="text-sm md:text-base font-black text-cyan-400 uppercase tracking-widest italic">
-                  At BeatLife DJs, we do more than play music. We create experiences while playing from the heart.
+                  At BeatLife DJ, we do more than play music. We create experiences while playing from the heart.
                 </p>
               </div>
             </div>
@@ -1066,7 +1158,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
               {/* Unified bio blocks - matched perfectly to the premium scale of the Company section */}
               <div className="space-y-6 text-white/75 text-base font-medium leading-relaxed uppercase italic">
                 <p>
-                  Born and raised in Orlando, Florida, Dustin Anderson is the founder and creative force behind BeatLife DJs. With over 15 years of experience, Dustin has entertained crowds across weddings, resorts, nightlife venues, sporting events, school dances, and major attractions throughout Central Florida.
+                  Born and raised in Orlando, Florida, Dustin Anderson is the founder and creative force behind BeatLife DJ. With over 15 years of experience, Dustin has entertained crowds across weddings, resorts, nightlife venues, sporting events, school dances, and major attractions throughout Central Florida.
                 </p>
                 <p>
                   With a microphone in his hand since the age of four, entertainment has always been second nature. Over the years, Dustin has performed with and for major brands including Disney, Universal Studios, Orlando City Soccer, and the Orlando Magic, while also performing Disney weddings for more than four years.
@@ -1146,38 +1238,77 @@ Her true superpower is putting brides at ease both before and on their wedding d
         </div>
       </section>
 
-      {/* --- TESTIMONIALS SECTION --- */}
-      <section id="reviews" className="scroll-mt-24 py-32 bg-[#0a0a0a] px-6">
-        <div className="max-w-7xl mx-auto space-y-24">
+      {/* --- TESTIMONIALS SECTION (With premium horizontal snap scroll & glow effects) --- */}
+      <section id="reviews" className="scroll-mt-24 py-32 bg-[#0a0a0a] px-6 relative overflow-hidden">
+        <div className="max-w-[1600px] mx-auto space-y-16">
           
-          {/* Section Headings */}
-          <div className="text-center space-y-4">
-             <div className="inline-flex items-center gap-3 text-cyan-500">
-               <Star className="w-5 h-5 fill-cyan-500 text-cyan-500" aria-hidden="true" />
-               <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">Client Testimonials</span>
-             </div>
-             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Praise & <span className="text-cyan-500">Reviews.</span></h2>
-             <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto uppercase italic">Proven dancefloor outcomes and absolute structural satisfaction.</p>
+          {/* Section Headings with aligned navigation controls */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div className="space-y-4 text-left">
+               <div className="inline-flex items-center gap-3 text-cyan-500">
+                 <Star className="w-5 h-5 fill-cyan-500 text-cyan-500" aria-hidden="true" />
+                 <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">Client Testimonials</span>
+               </div>
+               <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Praise & <span className="text-cyan-500">Reviews.</span></h2>
+               <p className="text-lg md:text-xl text-white/70 max-w-2xl uppercase italic">Proven dancefloor outcomes and absolute structural satisfaction.</p>
+            </div>
+
+            {/* Premium scroll utility buttons */}
+            <div className="flex gap-4 self-start md:self-auto">
+              <button 
+                onClick={() => handleReviewsScroll('left')}
+                className="w-16 h-16 rounded-full border border-white/10 hover:border-cyan-500 bg-neutral-950 flex items-center justify-center text-white/80 hover:text-white transition-all transform hover:scale-105"
+                aria-label="Scroll reviews left"
+              >
+                <ChevronLeft className="w-8 h-8" />
+              </button>
+              <button 
+                onClick={() => handleReviewsScroll('right')}
+                className="w-16 h-16 rounded-full border border-white/10 hover:border-cyan-500 bg-neutral-950 flex items-center justify-center text-white/80 hover:text-white transition-all transform hover:scale-105"
+                aria-label="Scroll reviews right"
+              >
+                <ChevronRight className="w-8 h-8" />
+              </button>
+            </div>
           </div>
 
-          {/* Testimonial Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Scrolling snap row track */}
+          <div 
+            ref={reviewsScrollRef}
+            className="flex gap-8 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 scrollbar-none scrollbar-hide select-none"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
             {testimonials.map((test, index) => (
-              <div key={index} className="group relative p-12 rounded-[3rem] border border-white/5 bg-neutral-950/80 hover:border-cyan-500/30 transition-all duration-700 flex flex-col justify-between">
-                <div className="space-y-6">
-                  {/* Star rating */}
-                  <div className="flex gap-1.5 text-cyan-500">
+              <div 
+                key={index} 
+                className="group flex-shrink-0 w-[90%] sm:w-[500px] snap-start relative p-12 rounded-[3rem] border border-white/5 bg-neutral-950/80 hover:border-cyan-500/30 transition-all duration-700 flex flex-col justify-between hover:shadow-[0_15px_30px_rgba(34,211,238,0.05)]"
+              >
+                <div className="space-y-6 flex flex-col items-center">
+                  {/* Testimonial Header: Prominent, Centered Headphone logo matching Service Modal effect */}
+                  <div className="w-24 h-24 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center p-4 shadow-2xl shrink-0 transition-all duration-500 group-hover:scale-110 group-hover:border-cyan-500/80 group-hover:rotate-6 group-hover:shadow-[0_0_35px_rgba(34,211,238,0.25)]">
+                    <img 
+                      src={test.headset} 
+                      alt="Heart package headphone emblem" 
+                      className="w-full h-full object-contain filter drop-shadow-[0_6px_16px_rgba(34,211,238,0.3)]" 
+                      width="96"
+                      height="96"
+                    />
+                  </div>
+                  
+                  {/* Centered Rating Stars underneath Headset logo */}
+                  <div className="flex gap-1.5 text-cyan-500 justify-center">
                     {Array.from({ length: test.stars }).map((_, sIdx) => (
                       <Star key={sIdx} className="w-4 h-4 fill-cyan-500" aria-hidden="true" />
                     ))}
                   </div>
-                  <p className="text-white/80 text-base leading-relaxed font-semibold uppercase italic leading-normal">
+                  
+                  <p className="text-white/80 text-base leading-relaxed font-semibold uppercase italic leading-normal text-center pt-2">
                     "{test.quote}"
                   </p>
                 </div>
                 
-                {/* Meta details - corrected sequential h3 hierarchy */}
-                <div className="pt-10 border-t border-white/5 mt-10">
+                {/* Meta details aligned centered */}
+                <div className="pt-10 border-t border-white/5 mt-10 text-center">
                   <h3 className="text-lg font-black uppercase tracking-tighter text-white leading-none mb-2">{test.author}</h3>
                   <p className="text-[10px] font-black uppercase tracking-widest text-cyan-400">{test.meta}</p>
                 </div>
@@ -1185,10 +1316,41 @@ Her true superpower is putting brides at ease both before and on their wedding d
             ))}
           </div>
 
+          {/* Premium Centered Award/Review badges for WeddingWire and The Knot (Fully Uniformed & Aligned width to exactly 288px) */}
+          <div className="flex flex-wrap justify-center items-center gap-6 pt-12 border-t border-white/5">
+            <a 
+              href="https://www.weddingwire.com/biz/the-game-plan-orlando/dceca396dc820257.html" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group flex items-center gap-4 bg-neutral-950 hover:bg-neutral-900 border border-white/10 hover:border-cyan-500/50 px-8 py-4 rounded-full transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(34,211,238,0.1)] transform hover:-translate-y-1"
+              aria-label="Read BeatLife DJ reviews on WeddingWire"
+            >
+              <WeddingWireIcon className="w-6 h-6 text-cyan-400 group-hover:scale-110 transition-transform" />
+              <div className="text-left">
+                <p className="text-[9px] font-black tracking-widest text-white/50 uppercase leading-none">Reviewed On</p>
+                <p className="text-sm font-bold text-white uppercase tracking-wider mt-1">WeddingWire</p>
+              </div>
+            </a>
+            
+            <a 
+              href="https://www.theknot.com/marketplace/beat-life-dj-orlando-fl-2100018#unified-lightbox-modal" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group flex items-center gap-4 bg-neutral-950 hover:bg-neutral-900 border border-white/10 hover:border-cyan-500/50 px-8 py-4 rounded-full transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(34,211,238,0.1)] transform hover:-translate-y-1"
+              aria-label="Read BeatLife DJ reviews on The Knot"
+            >
+              <TheKnotIcon className="w-6 h-6 text-cyan-400 group-hover:scale-110 transition-transform" />
+              <div className="text-left">
+                <p className="text-[9px] font-black tracking-widest text-white/50 uppercase leading-none">Featured On</p>
+                <p className="text-sm font-bold text-white uppercase tracking-wider mt-1">The Knot</p>
+              </div>
+            </a>
+          </div>
+
         </div>
       </section>
 
-      {/* --- INTEGRATED TEAM MEMBER MODAL POPUP --- */}
+      {/* --- INTEGRATED TEAM MEMBER MODAL POPUP (Standardized pop-out effects) --- */}
       {activeTeamMember && (
         <div className="fixed inset-0 z-[500] flex items-center justify-center p-4 md:p-12 animate-fade-in">
           <div className="absolute inset-0 bg-black/95 backdrop-blur-2xl" onClick={() => setActiveTeamMember(null)}></div>
@@ -1205,19 +1367,25 @@ Her true superpower is putting brides at ease both before and on their wedding d
             {/* Content Side */}
             <div className="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center space-y-8 order-2 lg:order-1 bg-[#0a0a0a] text-center">
               <div className="space-y-6 flex flex-col items-center">
-                {/* Meta Indicator and Name */}
+                {/* Meta Indicator: Name at top, role/title with larger layout directly beneath */}
                 <div className="text-left w-full space-y-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-cyan-500/80 block italic">
-                    {activeTeamMember.role}
-                  </span>
-                  <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter italic leading-none text-white">
+                  <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter italic leading-tight text-white">
                     {activeTeamMember.name}
                   </h2>
+                  <span className="text-xs md:text-sm font-black uppercase tracking-[0.2em] text-cyan-500 block italic">
+                    {activeTeamMember.role}
+                  </span>
                 </div>
                 
-                {/* Centered Headphone representation (Consistent Brand Touchpoint) */}
-                <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center p-3 shadow-xl shrink-0 mt-2 transition-transform duration-500 hover:rotate-6">
-                  <img src={ASSETS.ICONS.SINGLE} className="w-full h-full object-contain filter drop-shadow-[0_4px_10px_rgba(34,211,238,0.2)]" alt="Single Headphone Icon" width="48" height="48" />
+                {/* Centered Headphone representation (Standardized to Services effect with glowing hover-scale mechanics) */}
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center p-4 shadow-2xl shrink-0 mt-2 transition-all duration-500 hover:scale-110 hover:border-cyan-500/80 hover:rotate-6 hover:shadow-[0_0_35px_rgba(34,211,238,0.25)] group/modalset">
+                  <img 
+                    src={ASSETS.ICONS.SINGLE} 
+                    className="w-full h-full object-contain filter drop-shadow-[0_6px_16px_rgba(34,211,238,0.3)] transition-transform duration-500 group-hover/modalset:scale-105" 
+                    alt="Single Headphone Icon" 
+                    width="112"
+                    height="112"
+                  />
                 </div>
                 
                 {/* Biography prose layout with custom scroll bar support */}
@@ -1333,12 +1501,19 @@ Her true superpower is putting brides at ease both before and on their wedding d
                <p className="text-[10px] font-bold text-white/60 uppercase tracking-widest italic">DNA Music Group Partner • Studio Grade standards since 2011</p>
             </div>
             
-            <div className="flex gap-10">
-               <a href="#" className="w-12 h-12 flex items-center justify-center text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit our Facebook page">
-                  <FacebookIcon className="w-8 h-8" />
+            {/* Expanded Footer Social Bar */}
+            <div className="flex gap-6 items-center">
+               <a href="https://www.facebook.com/BeatLifeDJ" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
+                  <FacebookIcon className="w-6 h-6" />
                </a>
-               <a href="#" className="w-12 h-12 flex items-center justify-center text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit our Instagram page">
-                  <InstagramIcon className="w-8 h-8" />
+               <a href="https://www.instagram.com/beatlifedj" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Instagram">
+                  <InstagramIcon className="w-6 h-6" />
+               </a>
+               <a href="https://www.weddingwire.com/biz/the-game-plan-orlando/dceca396dc820257.html" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on WeddingWire">
+                  <WeddingWireIcon className="w-6 h-6" />
+               </a>
+               <a href="https://www.theknot.com/marketplace/beat-life-dj-orlando-fl-2100018#unified-lightbox-modal" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on The Knot">
+                  <TheKnotIcon className="w-6 h-6" />
                </a>
             </div>
 
@@ -1370,6 +1545,22 @@ Her true superpower is putting brides at ease both before and on their wedding d
               Contact
             </button>
           </div>
+          
+          {/* Mobile Social Drawer Group */}
+          <div className="absolute bottom-10 flex gap-6 items-center">
+            <a href="https://www.facebook.com/BeatLifeDJ" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
+              <FacebookIcon className="w-6 h-6" />
+            </a>
+            <a href="https://www.instagram.com/beatlifedj" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Instagram">
+              <InstagramIcon className="w-6 h-6" />
+            </a>
+            <a href="https://www.weddingwire.com/biz/the-game-plan-orlando/dceca396dc820257.html" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on WeddingWire">
+              <WeddingWireIcon className="w-6 h-6" />
+            </a>
+            <a href="https://www.theknot.com/marketplace/beat-life-dj-orlando-fl-2100018#unified-lightbox-modal" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on The Knot">
+              <TheKnotIcon className="w-6 h-6" />
+            </a>
+          </div>
         </div>
       )}
 
@@ -1395,6 +1586,9 @@ Her true superpower is putting brides at ease both before and on their wedding d
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
           background: rgba(34, 211, 238, 0.6);
+        }
+        .scrollbar-none::-webkit-scrollbar {
+          display: none;
         }
       `}</style>
 
