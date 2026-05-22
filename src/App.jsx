@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 
 /**
- * BEATLIFE: CINEMATIC EDITORIAL DEPLOYMENT (V13.6)
+ * BEATLIFE: CINEMATIC EDITORIAL DEPLOYMENT (V13.8)
  * --------------------------------------
  * UI Focus: Performance and Accessibility optimized web experience.
  * Fully compliant with WCAG AA contrast rules, reflow-free scroll observation,
@@ -16,9 +16,9 @@ import {
  * Asset Upgrades: Swapped key raster images to ultra-compressed AVIF format.
  * Feature Addition: Expanded Team & Testimonials Section with centered headphone cards,
  * clean vertical text alignments, customized biography popouts, and premium glowing review badges.
- * Media Upgrades: Removed dimming masks over the video teaser and gallery thumbnails.
+ * Media Upgrades: Replaced Karaoke & Photo Booth placeholders with high-fidelity AVIF previews across both main layout and popouts.
  * Branding: Refined all text references to read "BeatLife DJ" instead of "BeatLife DJs".
- * Taglines: Subheaders updated for Welcome, Services, and Heart Tiers. Review badges standardized.
+ * Taglines: Subheaders updated for Welcome, Services, and Heart Tiers. Review badges standardized and made uniform size.
  */
 
 // Custom Inline SVG Icons for stability
@@ -303,7 +303,7 @@ Services can include:
     },
     { 
       title: "Karaoke", 
-      icon: <Mic2 className="w-10 h-10 text-cyan-500" aria-hidden="true" />, 
+      thumbnail: '/images/karaoke-beatlife.avif',
       headset: ASSETS.ICONS.SINGLE,
       desc: `BeatLife DJ brings high energy karaoke entertainment to resorts, bars, corporate events, and private parties throughout Central Florida.
 
@@ -311,7 +311,7 @@ With professional sound equipment, thousands of song selections, crowd interacti
     },
     { 
       title: "Photo Booths", 
-      icon: <Camera className="w-10 h-10 text-cyan-500" aria-hidden="true" />, 
+      thumbnail: '/images/photo-booth-beatlife.avif',
       headset: ASSETS.ICONS.DOUBLE,
       desc: `Our Photo Booth experiences are the perfect addition to weddings, corporate events, school dances, and private parties.
 
@@ -665,14 +665,15 @@ Her true superpower is putting brides at ease both before and on their wedding d
               >
                 {/* 16:9 Cinematic Container for Uniform Formatting with Brightened Default Mode */}
                 <div className="aspect-video w-full rounded-[2.5rem] overflow-hidden border border-white/10 shadow-xl relative group-hover:border-cyan-500 transition-all duration-500 bg-neutral-900">
-                  {/* Background: YouTube Thumbnail or Placeholder - ALWAYS COLOR with increased default visibility */}
-                  {service.youtubeId ? (
+                  {/* Background: YouTube Thumbnail or AVIF Image - ALWAYS COLOR with increased default visibility */}
+                  {service.thumbnail ? (
                     <img 
                       src={service.thumbnail} 
                       className="w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
                       alt={`${service.title} capabilities preview thumbnail`}
                       width="640"
                       height="480"
+                      onError={handleImgError}
                     />
                   ) : (
                     <div className="absolute inset-0 bg-neutral-950 flex items-center justify-center overflow-hidden">
@@ -792,6 +793,20 @@ Her true superpower is putting brides at ease both before and on their wedding d
                       allowFullScreen
                       title={`${activeService.title} performance reel`}
                     />
+                  </div>
+                ) : activeService.thumbnail ? (
+                  <div className="w-full h-full min-h-[400px] flex items-center justify-center bg-black p-6">
+                    <div className="relative w-full max-w-lg aspect-square rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
+                      <img 
+                        src={activeService.thumbnail} 
+                        alt={`${activeService.title} presentation image`} 
+                        className="w-full h-full object-cover opacity-95 transition-transform duration-1000"
+                        onError={handleImgError}
+                        width="500"
+                        height="500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
+                    </div>
                   </div>
                 ) : (
                   <div className="w-full h-full min-h-[400px] flex flex-col items-center justify-center p-12 md:p-20 text-center relative overflow-hidden bg-black">
@@ -1316,19 +1331,21 @@ Her true superpower is putting brides at ease both before and on their wedding d
             ))}
           </div>
 
-          {/* Premium Centered Award/Review badges for WeddingWire and The Knot (Fully Uniformed & Aligned width to exactly 288px) */}
-          <div className="flex flex-wrap justify-center items-center gap-6 pt-12 border-t border-white/5">
+          {/* Premium Centered Award/Review badges for WeddingWire and The Knot (Standardized to exactly w-72 width) */}
+          <div className="flex flex-wrap justify-center items-center gap-8 pt-12 border-t border-white/5">
             <a 
               href="https://www.weddingwire.com/biz/the-game-plan-orlando/dceca396dc820257.html" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 bg-neutral-950 hover:bg-neutral-900 border border-white/10 hover:border-cyan-500/50 px-8 py-4 rounded-full transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(34,211,238,0.1)] transform hover:-translate-y-1"
+              className="group flex items-center gap-5 bg-gradient-to-br from-neutral-900 to-black border border-cyan-500/40 hover:border-cyan-400 px-8 py-5 rounded-3xl transition-all duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(34,211,238,0.25)] transform hover:-translate-y-1.5 w-72 justify-start shrink-0"
               aria-label="Read BeatLife DJ reviews on WeddingWire"
             >
-              <WeddingWireIcon className="w-6 h-6 text-cyan-400 group-hover:scale-110 transition-transform" />
+              <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300 shadow-inner shrink-0">
+                <WeddingWireIcon className="w-8 h-8" />
+              </div>
               <div className="text-left">
-                <p className="text-[9px] font-black tracking-widest text-white/50 uppercase leading-none">Reviewed On</p>
-                <p className="text-sm font-bold text-white uppercase tracking-wider mt-1">WeddingWire</p>
+                <p className="text-[10px] font-black tracking-[0.2em] text-white/50 uppercase leading-none">Reviewed On</p>
+                <p className="text-lg font-bold text-white uppercase tracking-wider mt-1 group-hover:text-cyan-400 transition-colors">WeddingWire</p>
               </div>
             </a>
             
@@ -1336,13 +1353,15 @@ Her true superpower is putting brides at ease both before and on their wedding d
               href="https://www.theknot.com/marketplace/beat-life-dj-orlando-fl-2100018#unified-lightbox-modal" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 bg-neutral-950 hover:bg-neutral-900 border border-white/10 hover:border-cyan-500/50 px-8 py-4 rounded-full transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(34,211,238,0.1)] transform hover:-translate-y-1"
+              className="group flex items-center gap-5 bg-gradient-to-br from-neutral-900 to-black border border-cyan-500/40 hover:border-cyan-400 px-8 py-5 rounded-3xl transition-all duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(34,211,238,0.25)] transform hover:-translate-y-1.5 w-72 justify-start shrink-0"
               aria-label="Read BeatLife DJ reviews on The Knot"
             >
-              <TheKnotIcon className="w-6 h-6 text-cyan-400 group-hover:scale-110 transition-transform" />
+              <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300 shadow-inner shrink-0">
+                <TheKnotIcon className="w-8 h-8" />
+              </div>
               <div className="text-left">
-                <p className="text-[9px] font-black tracking-widest text-white/50 uppercase leading-none">Featured On</p>
-                <p className="text-sm font-bold text-white uppercase tracking-wider mt-1">The Knot</p>
+                <p className="text-[10px] font-black tracking-[0.2em] text-white/50 uppercase leading-none">Featured On</p>
+                <p className="text-lg font-bold text-white uppercase tracking-wider mt-1 group-hover:text-cyan-400 transition-colors">The Knot</p>
               </div>
             </a>
           </div>
