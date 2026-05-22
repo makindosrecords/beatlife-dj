@@ -328,9 +328,9 @@ A fun and interactive way for guests to capture memories throughout the night.`
   ];
 
   const packages = [
-    { name: "Single Heart", icon: ASSETS.ICONS.SINGLE, count: 1, tier: "ESSENTIAL", features: ["1 Hour Consultation", "Reception (4-5 hours)", "Complete DJ/Emcee Set Up", "2 Speakers", "2 Dance Floor Lights"] },
-    { name: "Double Heart", icon: ASSETS.ICONS.DOUBLE, count: 2, tier: "SIGNATURE", featured: true, features: ["1 Hour Consultation", "Ceremony & Reception", "Reception (5-6 hours)", "Complete DJ/Emcee Set Up", "2 Speakers", "Enhanced Dance Floor Lights"] },
-    { name: "Triple Heart", icon: ASSETS.ICONS.TRIPLE, count: 3, tier: "POWERHOUSE", features: ["1 Hour Consultation", "Ceremony & Reception", "Reception (5-6 hours)", "DJ/Emcee Set Up + Subwoofer", "8-10 Dance Floor Lights", "6 Professional Up Lights"] }
+    { name: "Single Heart", icon: ASSETS.ICONS.SINGLE, count: 1, tier: "ESSENTIAL", features: ["1 Hour Consultation", "Reception (4-5 hours)", "Complete DJ/Emcee Set Up", "Dance Floor Lighting"] },
+    { name: "Double Heart", icon: ASSETS.ICONS.DOUBLE, count: 2, tier: "SIGNATURE", featured: true, features: ["1 Hour Consultation", "Ceremony & Reception", "Reception (5-6 hours)", "Complete DJ/Emcee Set Up", "Enhanced Dance Floor Lights", "Limited uplighting around the room and dj booth"] },
+    { name: "Triple Heart", icon: ASSETS.ICONS.TRIPLE, count: 3, tier: "POWERHOUSE", features: ["1 Hour Consultation", "Ceremony & Reception", "Reception (5-6 hours)", "DJ/Emcee Set Up + Subwoofer", "Premium Dance Floor Lighting", "15-25 Professional Uplights"] }
   ];
 
   // Expanded Testimonial Database (from 3 to 7 high-end listings)
@@ -613,9 +613,9 @@ Her true superpower is putting brides at ease both before and on their wedding d
                <span className="text-sm font-black uppercase tracking-[0.6em] text-white/70">The Official introduction</span>
              </div>
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Welcome to <span className="text-cyan-500">Beatlife.</span></h2>
-             {/* SUBHEADING REWRITTEN TO "Real mixing, Real talent, Real moments" */}
+             {/* SUBHEADING REWRITTEN TO "Real mixing. Real talent. Real moments." */}
              <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-medium uppercase italic leading-relaxed">
-               Real mixing, Real talent, Real moments
+               Real mixing. Real talent. Real moments.
              </p>
           </div>
           
@@ -652,8 +652,8 @@ Her true superpower is putting brides at ease both before and on their wedding d
                <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">Our Capabilities</span>
              </div>
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Event <span className="text-cyan-500">Solutions.</span></h2>
-             {/* SUBHEADING REWRITTEN TO "Skilled MC's, creative Dj's, packed dancefloors" */}
-             <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto uppercase italic">Skilled MC's, creative Dj's, packed dancefloors</p>
+             {/* SUBHEADING REWRITTEN TO "Skilled MC's. Creative Dj's. Packed dancefloors." */}
+             <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto uppercase italic">Skilled MC's. Creative Dj's. Packed dancefloors.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -694,9 +694,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
                   <div className="absolute bottom-6 left-8 right-8 flex justify-start items-end z-10">
                     <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic leading-none drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">{service.title}</h3>
                   </div>
-                  
-                  {/* Subtle bottom gradient focusing solely on keeping bottom title readable */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 pointer-events-none"></div>
                 </div>
               </div>
             ))}
@@ -805,7 +802,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
                         width="500"
                         height="500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
                     </div>
                   </div>
                 ) : (
@@ -1227,7 +1223,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
                       width="350"
                       height="350"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
                   </div>
 
                   {/* Identification Metadata */}
@@ -1433,7 +1428,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
                     width="500"
                     height="500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
                 </div>
               </div>
             </div>
