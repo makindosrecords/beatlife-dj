@@ -473,7 +473,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden antialiased">
       
       {/* Scroll anchor target observed by event observer to prevent scroll layout thrashing */}
       <div id="scroll-anchor" className="absolute top-0 left-0 w-full h-1 pointer-events-none"></div>
@@ -482,13 +482,13 @@ Her true superpower is putting brides at ease both before and on their wedding d
       <nav className={`fixed w-full z-[100] transition-all duration-700 ${scrolled ? 'bg-black/95 backdrop-blur-xl py-2 border-b border-white/5 shadow-2xl' : 'bg-transparent py-4'}`}>
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="flex items-center gap-4 md:gap-8 cursor-pointer group" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-            <div className="flex items-center gap-2 md:gap-3">
+            <div className="flex items-center gap-2 md:gap-3 shrink-0">
               <img src={ASSETS.NAV_HEART} alt="Beatlife Heart decorative brand symbol" width="96" height="96" className={`transition-all duration-700 h-auto ${scrolled ? 'w-12 md:w-16' : 'w-16 md:w-24'}`} />
               <img src={ASSETS.NAV_TEXT} alt="Beatlife Typography text Brandmark" width="176" height="34" className={`transition-all duration-700 h-auto ${scrolled ? 'w-24 md:w-32' : 'w-32 md:w-44'}`} />
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden xl:flex items-center gap-10">
             {['Services', 'Tiers', 'Company', 'About', 'Reviews'].map((item) => (
               <button 
                 key={item}
@@ -529,14 +529,14 @@ Her true superpower is putting brides at ease both before and on their wedding d
             </button>
           </div>
 
-          <button className="lg:hidden" onClick={() => setIsMenuOpen(true)} aria-label="Open Navigation Menu">
+          <button className="xl:hidden" onClick={() => setIsMenuOpen(true)} aria-label="Open Navigation Menu">
             <Menu className="w-8 h-8" aria-hidden="true" />
           </button>
         </div>
       </nav>
 
       {/* --- 100VH CINEMATIC HERO --- */}
-      <header className="relative h-screen flex items-center justify-center overflow-hidden">
+      <header className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
         {/* Instant high-performance loop loading since payload is highly compressed to 2MB */}
         <video 
           ref={heroVideoRef}
@@ -632,8 +632,9 @@ Her true superpower is putting brides at ease both before and on their wedding d
               <video 
                 ref={showcaseVideoRef}
                 controls={showcaseStarted}
+                playsInline
                 className="w-full h-full object-cover"
-                src={ASSETS.SHOWCASE_VIDEO}
+                src={`${ASSETS.SHOWCASE_VIDEO}#t=0.001`}
                 preload="metadata"
               >
                 <track kind="captions" src="" label="Introduction captions" default />
