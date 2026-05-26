@@ -132,49 +132,49 @@ const App = () => {
   const GALLERY_ITEMS = [
     {
       category: 'weddings',
-      url: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=60',
+      url: '/images/wedding_beatlife.avif',
       title: 'Grand Wedding Reception',
       desc: 'Dustin Anderson packing the dance floor at a grand ballroom celebration.'
     },
     {
       category: 'weddings',
-      url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=60',
+      url: '/images/dancing_cloud_beatlife.avif',
       title: 'Dancing On The Clouds',
       desc: 'Premium low-lying fog enhancements for a magical first dance.'
     },
     {
       category: 'corporate',
-      url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=500&q=60',
+      url: '/images/beatlife_venue_2.avif',
       title: 'Polished Corporate Gala',
       desc: 'Elegant background design and timeline management for executive brands.'
     },
     {
       category: 'lighting',
-      url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=60',
+      url: '/images/lighting_beatlife.avif',
       title: 'Intelligent Beam Show',
       desc: 'Custom DMX programming synchronizing with the master performance set.'
     },
     {
       category: 'lighting',
-      url: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=500&q=60',
+      url: '/images/wedding_gobo_beatlife.avif',
       title: 'Custom Monogram Projection',
       desc: 'Personalized monogram and gobo designs illuminated elegantly.'
     },
     {
       category: 'equipment',
-      url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=60',
+      url: '/images/beatlife_equipment.avif',
       title: 'Studio-Grade Control Booth',
       desc: 'High-fidelity Pioneer hardware configurations for clean, real live mixing.'
     },
     {
       category: 'dustin',
-      url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=60',
+      url: '/images/bride_groom_beatlife.avif',
       title: 'Dustin Hosting Live',
       desc: 'Dustin Anderson bridging deep energy with personal, authentic connections.'
     },
     {
       category: 'other',
-      url: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=60',
+      url: '/images/venue_beatlife.avif',
       title: 'Resort Poolside Interactive Game',
       desc: 'Central Florida resort family programming, props, and active games.'
     }
@@ -430,7 +430,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
 
   const copyEmail = () => {
     const el = document.createElement('textarea');
-    el.value = 'dustin@beatlifedj.com';
+    el.value = 'beatlifedj@gmail.com';
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
@@ -1110,7 +1110,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
             <img 
               src={GALLERY_ITEMS[lightboxIndex].url} 
               alt={`${GALLERY_ITEMS[lightboxIndex].title} - expanded view`} 
-              className="max-h-[70vh] rounded-3xl object-contain border border-white/10 shadow-2xl"
+              className="w-full max-h-[70vh] aspect-video rounded-3xl object-cover border border-white/10 shadow-2xl"
               onError={handleImgError}
               width="1000"
               height="600"
@@ -1466,7 +1466,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
                       <div>
                         <p className="text-[10px] font-black uppercase opacity-60 tracking-widest mb-1 italic">Digital Inquiries</p>
                         <p className="text-lg font-black italic tracking-tighter leading-none flex items-center gap-2">
-                          dustin@beatlifedj.com <Copy className="w-3 h-3 opacity-30" />
+                          beatlifedj@gmail.com <Copy className="w-3 h-3 opacity-30" />
                         </p>
                       </div>
                     </div>
