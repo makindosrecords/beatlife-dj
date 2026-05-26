@@ -569,7 +569,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
             
             <h1 className="text-5xl md:text-8xl font-[1000] leading-[0.9] tracking-tighter uppercase italic mb-6 drop-shadow-2xl">
               PLAY FROM <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-400 to-cyan-700">THE HEART.</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-400 to-cyan-700">THE HEART</span>
             </h1>
 
@@ -613,7 +612,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
                <Film className="w-6 h-6" aria-hidden="true" />
                <span className="text-sm font-black uppercase tracking-[0.6em] text-white/70">The Official introduction</span>
              </div>
-             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Welcome to <span className="text-cyan-500">Beatlife.</span></h2>
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Welcome to <span className="text-cyan-500">Beatlife</span></h2>
              {/* SUBHEADING REWRITTEN TO "Real mixing. Real talent. Real moments." */}
              <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-medium uppercase italic leading-relaxed">
@@ -654,7 +652,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
                <Zap className="w-5 h-5" aria-hidden="true" />
                <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">Our Capabilities</span>
              </div>
-             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Event <span className="text-cyan-500">Solutions.</span></h2>
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Event <span className="text-cyan-500">Solutions</span></h2>
              {/* SUBHEADING REWRITTEN TO "Skilled MC's. Creative Dj's. Packed dancefloors." */}
              <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto uppercase italic">Skilled MC's. Creative Dj's. Packed dancefloors.</p>
@@ -832,7 +829,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
       <section id="tiers" className="scroll-mt-24 py-32 bg-[#0a0a0a] px-6 border-y border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24 space-y-4">
-             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Heart <span className="text-cyan-500 underline decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">Tiers.</span></h2>
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Heart <span className="text-cyan-500 underline decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">Tiers</span></h2>
              {/* SUBHEADING REWRITTEN TO "wedding packages designed around your love story" */}
              <p className="text-xs font-black uppercase tracking-[0.4em] text-white/70">wedding packages designed around your love story</p>
@@ -950,7 +946,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
                <Users className="w-5 h-5" aria-hidden="true" />
                <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">About BeatLife DJ</span>
              </div>
-             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">About <span className="text-cyan-500">BeatLife DJ.</span></h2>
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">About <span className="text-cyan-500">BeatLife DJ</span></h2>
              <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto uppercase italic">Full Service Entertainment Based In Orlando, Florida</p>
           </div>
@@ -1063,7 +1058,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
             {/* Right Side: Structured Brand Narrative Copy */}
             <div className="lg:col-span-6 space-y-8">
               <span className="text-cyan-500 font-black text-xs uppercase tracking-[0.5em] block">STUDIO-GRADE COLLECTIVE OPERATIONS</span>
-              <h4 className="text-4xl md:text-5xl font-[1000] tracking-tighter uppercase italic leading-[0.9] text-white">We create experiences while playing from the heart.</h4>
               <h4 className="text-4xl md:text-5xl font-[1000] tracking-tighter uppercase italic leading-[0.9] text-white">We create experiences while playing from the heart</h4>
               
               <div className="space-y-6 text-white/75 text-base font-medium leading-relaxed uppercase italic">
@@ -1170,7 +1164,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
               <div className="space-y-4">
                 <span className="text-cyan-500 font-black text-xs uppercase tracking-[0.5em] block">Founder Spotlight</span>
                 {/* Heading line-height updated to leading-tight to fix squished typography spacing */}
-                <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-tight italic underline decoration-white decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">How It All <br/>Started.</h2>
                 <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-tight italic underline decoration-white decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">How It All <br/>Started</h2>
               </div>
               
@@ -1210,7 +1203,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
                 <Users className="w-5 h-5" aria-hidden="true" />
                 <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">Partners & Members</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic leading-none">Meet The <span className="text-cyan-500">Collective.</span></h2>
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic leading-none">Meet The <span className="text-cyan-500">Collective</span></h2>
               <p className="text-base md:text-lg text-white/70 uppercase italic max-w-2xl mx-auto">The elite forces driving seamless planning, absolute trust, and high-energy show execution.</p>
             </div>
@@ -1268,7 +1260,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
                  <Star className="w-5 h-5 fill-cyan-500 text-cyan-500" aria-hidden="true" />
                  <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">Client Testimonials</span>
                </div>
-               <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Praise & <span className="text-cyan-500">Reviews.</span></h2>
                <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Praise & <span className="text-cyan-500">Reviews</span></h2>
                <p className="text-lg md:text-xl text-white/70 max-w-2xl uppercase italic">Proven dancefloor outcomes and absolute structural satisfaction.</p>
             </div>
@@ -1464,7 +1455,6 @@ Her true superpower is putting brides at ease both before and on their wedding d
                  <img src={ASSETS.HERO_LOGO} className="w-80 grayscale" alt="Watermark branded symbol" width="320" height="150" />
               </div>
               <div className="relative z-10">
-                 <h2 className="text-6xl md:text-7xl font-black uppercase tracking-tighter italic leading-[0.8] mb-12">Book the <br/>Beat.</h2>
                  <h2 className="text-6xl md:text-7xl font-black uppercase tracking-tighter italic leading-[0.8] mb-12">Book the <br/>Beat</h2>
                  <div className="space-y-8">
                     <div className="flex gap-6 items-center group cursor-pointer">
