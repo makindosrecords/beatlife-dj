@@ -1486,15 +1486,26 @@ Her true superpower is putting brides at ease both before and on their wedding d
                       <label className="text-[10px] font-black uppercase tracking-widest text-white/70 italic block mb-3">Reply Channel</label>
                       <input type="email" name="email" required className="w-full bg-transparent outline-none font-black text-2xl uppercase tracking-tighter placeholder:text-white/5" placeholder="EMAIL ADDRESS" />
                     </div>
+                    <div className="border-b border-white/10 focus-within:border-cyan-500 transition-all py-2">
+                      <label className="text-[10px] font-black uppercase tracking-widest text-white/70 italic block mb-3">Direct Line</label>
+                      <input type="tel" name="phone" className="w-full bg-transparent outline-none font-black text-2xl uppercase tracking-tighter placeholder:text-white/5" placeholder="PHONE NUMBER" />
+                    </div>
+                    <div className="border-b border-white/10 focus-within:border-cyan-500 transition-all py-2">
+                       <label className="text-[10px] font-black uppercase tracking-widest text-white/70 italic block mb-3">Configuration</label>
+                       <select name="event_type" className="w-full bg-transparent outline-none font-black text-xl uppercase tracking-tighter appearance-none cursor-pointer">
+                          <option value="Weddings" className="bg-black text-white">WEDDINGS</option>
+                          <option value="Resorts" className="bg-black text-white">RESORTS</option>
+                          <option value="School Events" className="bg-black text-white">SCHOOL EVENTS</option>
+                          <option value="Youth Events" className="bg-black text-white">YOUTH EVENTS</option>
+                          <option value="Corporate" className="bg-black text-white">CORPORATE</option>
+                          <option value="Karaoke" className="bg-black text-white">KARAOKE</option>
+                          <option value="Photo Booths" className="bg-black text-white">PHOTO BOOTHS</option>
+                       </select>
+                    </div>
                   </div>
                   <div className="border-b border-white/10 focus-within:border-cyan-500 transition-all py-2">
-                     <label className="text-[10px] font-black uppercase tracking-widest text-white/70 italic block mb-3">Configuration</label>
-                     <select name="event_type" className="w-full bg-transparent outline-none font-black text-xl uppercase tracking-tighter appearance-none cursor-pointer">
-                        <option value="Wedding Experience" className="bg-black text-white">WEDDING EXPERIENCE</option>
-                        <option value="Youth / Mitzvah Show" className="bg-black text-white">YOUTH / MITZVAH SHOW</option>
-                        <option value="Corporate Production" className="bg-black text-white">CORPORATE PRODUCTION</option>
-                        <option value="Sweet 16 / Quinceañera" className="bg-black text-white">SWEET 16 / QUINCEAÑERA</option>
-                     </select>
+                     <label className="text-[10px] font-black uppercase tracking-widest text-white/70 italic block mb-3">Additional Comments</label>
+                     <textarea name="comments" rows="3" className="w-full bg-transparent outline-none font-black text-xl uppercase tracking-tighter placeholder:text-white/5 resize-none custom-scrollbar" placeholder="ANY SPECIFIC DETAILS OR REQUESTS?"></textarea>
                   </div>
                   <button type="submit" className="w-full bg-cyan-500 text-white py-8 rounded-[1.5rem] font-black uppercase tracking-[0.4em] text-[11px] hover:bg-white hover:text-black transition-all">
                     Transmit Session Request
