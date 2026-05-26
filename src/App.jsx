@@ -570,6 +570,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
             <h1 className="text-5xl md:text-8xl font-[1000] leading-[0.9] tracking-tighter uppercase italic mb-6 drop-shadow-2xl">
               PLAY FROM <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-400 to-cyan-700">THE HEART.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-400 to-cyan-700">THE HEART</span>
             </h1>
 
             {/* TAGLINE UPDATED AS REQUESTED */}
@@ -613,6 +614,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
                <span className="text-sm font-black uppercase tracking-[0.6em] text-white/70">The Official introduction</span>
              </div>
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Welcome to <span className="text-cyan-500">Beatlife.</span></h2>
+             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Welcome to <span className="text-cyan-500">Beatlife</span></h2>
              {/* SUBHEADING REWRITTEN TO "Real mixing. Real talent. Real moments." */}
              <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-medium uppercase italic leading-relaxed">
                Real mixing. Real talent. Real moments.
@@ -653,6 +655,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
                <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">Our Capabilities</span>
              </div>
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Event <span className="text-cyan-500">Solutions.</span></h2>
+             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Event <span className="text-cyan-500">Solutions</span></h2>
              {/* SUBHEADING REWRITTEN TO "Skilled MC's. Creative Dj's. Packed dancefloors." */}
              <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto uppercase italic">Skilled MC's. Creative Dj's. Packed dancefloors.</p>
           </div>
@@ -830,6 +833,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24 space-y-4">
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Heart <span className="text-cyan-500 underline decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">Tiers.</span></h2>
+             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Heart <span className="text-cyan-500 underline decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">Tiers</span></h2>
              {/* SUBHEADING REWRITTEN TO "wedding packages designed around your love story" */}
              <p className="text-xs font-black uppercase tracking-[0.4em] text-white/70">wedding packages designed around your love story</p>
           </div>
@@ -947,6 +951,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
                <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">About BeatLife DJ</span>
              </div>
              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">About <span className="text-cyan-500">BeatLife DJ.</span></h2>
+             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">About <span className="text-cyan-500">BeatLife DJ</span></h2>
              <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto uppercase italic">Full Service Entertainment Based In Orlando, Florida</p>
           </div>
 
@@ -1059,6 +1064,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
             <div className="lg:col-span-6 space-y-8">
               <span className="text-cyan-500 font-black text-xs uppercase tracking-[0.5em] block">STUDIO-GRADE COLLECTIVE OPERATIONS</span>
               <h4 className="text-4xl md:text-5xl font-[1000] tracking-tighter uppercase italic leading-[0.9] text-white">We create experiences while playing from the heart.</h4>
+              <h4 className="text-4xl md:text-5xl font-[1000] tracking-tighter uppercase italic leading-[0.9] text-white">We create experiences while playing from the heart</h4>
               
               <div className="space-y-6 text-white/75 text-base font-medium leading-relaxed uppercase italic">
                 <p>
@@ -1165,6 +1171,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
                 <span className="text-cyan-500 font-black text-xs uppercase tracking-[0.5em] block">Founder Spotlight</span>
                 {/* Heading line-height updated to leading-tight to fix squished typography spacing */}
                 <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-tight italic underline decoration-white decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">How It All <br/>Started.</h2>
+                <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-tight italic underline decoration-white decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">How It All <br/>Started</h2>
               </div>
               
               {/* Unified bio blocks - matched perfectly to the premium scale of the Company section */}
@@ -1204,6 +1211,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
                 <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">Partners & Members</span>
               </div>
               <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic leading-none">Meet The <span className="text-cyan-500">Collective.</span></h2>
+              <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic leading-none">Meet The <span className="text-cyan-500">Collective</span></h2>
               <p className="text-base md:text-lg text-white/70 uppercase italic max-w-2xl mx-auto">The elite forces driving seamless planning, absolute trust, and high-energy show execution.</p>
             </div>
 
@@ -1261,6 +1269,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
                  <span className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70">Client Testimonials</span>
                </div>
                <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Praise & <span className="text-cyan-500">Reviews.</span></h2>
+               <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Praise & <span className="text-cyan-500">Reviews</span></h2>
                <p className="text-lg md:text-xl text-white/70 max-w-2xl uppercase italic">Proven dancefloor outcomes and absolute structural satisfaction.</p>
             </div>
 
@@ -1456,6 +1465,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
               </div>
               <div className="relative z-10">
                  <h2 className="text-6xl md:text-7xl font-black uppercase tracking-tighter italic leading-[0.8] mb-12">Book the <br/>Beat.</h2>
+                 <h2 className="text-6xl md:text-7xl font-black uppercase tracking-tighter italic leading-[0.8] mb-12">Book the <br/>Beat</h2>
                  <div className="space-y-8">
                     <div className="flex gap-6 items-center group cursor-pointer">
                       <div className="w-14 h-14 rounded-[1.2rem] bg-black text-cyan-500 flex items-center justify-center shadow-xl"><Phone className="w-6 h-6" /></div>
@@ -1475,27 +1485,28 @@ Her true superpower is putting brides at ease both before and on their wedding d
             </div>
 
             <div className="lg:w-3/5 p-12 md:p-16 space-y-12">
-               <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
+               <form action="https://api.web3forms.com/submit" method="POST" className="space-y-10">
+                  <input type="hidden" name="access_key" value="c82ba055-610f-4ae9-9a05-b0fe3aafeafe" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="border-b border-white/10 focus-within:border-cyan-500 transition-all py-2">
                       <label className="text-[10px] font-black uppercase tracking-widest text-white/70 italic block mb-3">Host Identity</label>
-                      <input type="text" className="w-full bg-transparent outline-none font-black text-2xl uppercase tracking-tighter placeholder:text-white/5" placeholder="FULL NAME" />
+                      <input type="text" name="name" required className="w-full bg-transparent outline-none font-black text-2xl uppercase tracking-tighter placeholder:text-white/5" placeholder="FULL NAME" />
                     </div>
                     <div className="border-b border-white/10 focus-within:border-cyan-500 transition-all py-2">
                       <label className="text-[10px] font-black uppercase tracking-widest text-white/70 italic block mb-3">Reply Channel</label>
-                      <input type="email" className="w-full bg-transparent outline-none font-black text-2xl uppercase tracking-tighter placeholder:text-white/5" placeholder="EMAIL ADDRESS" />
+                      <input type="email" name="email" required className="w-full bg-transparent outline-none font-black text-2xl uppercase tracking-tighter placeholder:text-white/5" placeholder="EMAIL ADDRESS" />
                     </div>
                   </div>
                   <div className="border-b border-white/10 focus-within:border-cyan-500 transition-all py-2">
                      <label className="text-[10px] font-black uppercase tracking-widest text-white/70 italic block mb-3">Configuration</label>
-                     <select className="w-full bg-transparent outline-none font-black text-xl uppercase tracking-tighter appearance-none cursor-pointer">
-                        <option className="bg-black text-white">WEDDING EXPERIENCE</option>
-                        <option className="bg-black text-white">YOUTH / MITZVAH SHOW</option>
-                        <option className="bg-black text-white">CORPORATE PRODUCTION</option>
-                        <option className="bg-black text-white">SWEET 16 / QUINCEAÑERA</option>
+                     <select name="event_type" className="w-full bg-transparent outline-none font-black text-xl uppercase tracking-tighter appearance-none cursor-pointer">
+                        <option value="Wedding Experience" className="bg-black text-white">WEDDING EXPERIENCE</option>
+                        <option value="Youth / Mitzvah Show" className="bg-black text-white">YOUTH / MITZVAH SHOW</option>
+                        <option value="Corporate Production" className="bg-black text-white">CORPORATE PRODUCTION</option>
+                        <option value="Sweet 16 / Quinceañera" className="bg-black text-white">SWEET 16 / QUINCEAÑERA</option>
                      </select>
                   </div>
-                  <button className="w-full bg-cyan-500 text-white py-8 rounded-[1.5rem] font-black uppercase tracking-[0.4em] text-[11px] hover:bg-white hover:text-black transition-all">
+                  <button type="submit" className="w-full bg-cyan-500 text-white py-8 rounded-[1.5rem] font-black uppercase tracking-[0.4em] text-[11px] hover:bg-white hover:text-black transition-all">
                     Transmit Session Request
                   </button>
                </form>
