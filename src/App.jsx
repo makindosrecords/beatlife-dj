@@ -1461,9 +1461,11 @@ Her true superpower is putting brides at ease both before and on their wedding d
                  <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter italic leading-[0.8] mb-8 md:mb-12">Book the <br/>Beat</h2>
                  <div className="space-y-6 md:space-y-8">
                     <div className="flex gap-6 items-center group cursor-pointer">
+                    <a href="tel:3214003507" className="flex gap-6 items-center group cursor-pointer">
                       <div className="w-14 h-14 rounded-[1.2rem] bg-black text-cyan-500 flex items-center justify-center shadow-xl"><Phone className="w-6 h-6" /></div>
                       <div><p className="text-[10px] font-black uppercase opacity-60 tracking-widest mb-1 italic">The Hotline</p><p className="text-xl md:text-2xl font-black italic tracking-tighter leading-none">(321) 400-3507</p></div>
                     </div>
+                    </a>
                     <div className="flex gap-6 items-center group cursor-pointer" onClick={copyEmail}>
                       <div className="w-14 h-14 rounded-[1.2rem] bg-black text-cyan-500 flex items-center justify-center shadow-xl"><Mail className="w-6 h-6" /></div>
                       <div>
