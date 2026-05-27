@@ -140,6 +140,7 @@ const App = () => {
       category: 'weddings',
       url: '/images/dancing_cloud_beatlife.avif',
       title: 'Dancing On The Clouds',
+      title: 'Dancing on a cloud',
       desc: 'Premium low-lying fog enhancements for a magical first dance.'
     },
     {
@@ -149,10 +150,10 @@ const App = () => {
       desc: 'Elegant background design and timeline management for executive brands.'
     },
     {
-      category: 'lighting',
-      url: '/images/lighting_beatlife.avif',
-      title: 'Intelligent Beam Show',
-      desc: 'Custom DMX programming synchronizing with the master performance set.'
+      category: 'weddings',
+      url: '/images/warehouse_wedding_beatlife.avif',
+      title: 'Warehouse Wedding Celebration',
+      desc: 'An unforgettable night with family and friends celebrating on the dance floor.'
     },
     {
       category: 'lighting',
@@ -167,16 +168,16 @@ const App = () => {
       desc: 'High-fidelity Pioneer hardware configurations for clean, real live mixing.'
     },
     {
-      category: 'dustin',
+      category: 'weddings',
       url: '/images/bride_groom_beatlife.avif',
-      title: 'Dustin Hosting Live',
-      desc: 'Dustin Anderson bridging deep energy with personal, authentic connections.'
+      title: 'A Magical First Dance',
+      desc: 'The beautiful couple sharing a special moment on the dance floor.'
     },
     {
-      category: 'other',
+      category: 'weddings',
       url: '/images/venue_beatlife.avif',
-      title: 'Resort Poolside Interactive Game',
-      desc: 'Central Florida resort family programming, props, and active games.'
+      title: 'Elegant Reception Dinner',
+      desc: 'A beautifully configured wedding venue ready for an evening of celebration.'
     }
   ];
 
@@ -777,7 +778,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
                   onClick={() => { setIsContactOpen(true); setActiveService(null); }}
                   className="inline-flex items-center gap-4 text-sm font-black uppercase tracking-widest bg-white text-black px-8 py-4 rounded-full hover:bg-cyan-500 hover:text-white transition-all w-fit shadow-xl mx-auto"
                 >
-                  Inquire for {activeService.title}
+                  Book Now
                 </button>
               </div>
 
@@ -1521,12 +1522,12 @@ Her true superpower is putting brides at ease both before and on their wedding d
       {/* --- FOOTER --- */}
       <footer className="py-24 px-6 border-t border-white/5">
          <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
-            <div className="flex flex-col items-center md:items-start gap-5">
-               <div className="flex items-center gap-5">
-                  <img src={ASSETS.NAV_HEART} className="w-14 grayscale opacity-40" alt="Beatlife Decorative Heart Logo" width="56" height="56" />
+            <div className="flex items-center gap-5">
+               <img src={ASSETS.NAV_HEART} className="w-14 grayscale opacity-40" alt="Beatlife Decorative Heart Logo" width="56" height="56" />
+               <div className="flex flex-col items-center md:items-start gap-2">
                   <p className="text-[10px] font-black uppercase tracking-[0.6em] text-white/70 italic leading-none">Beatlife Entertainment</p>
+                  <p className="text-[10px] font-bold text-white/60 uppercase tracking-widest italic">Play from the heart</p>
                </div>
-               <p className="text-[10px] font-bold text-white/60 uppercase tracking-widest italic">DNA Music Group Partner • Studio Grade standards since 2011</p>
             </div>
             
             {/* Expanded Footer Social Bar */}
