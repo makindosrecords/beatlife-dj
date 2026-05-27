@@ -181,6 +181,8 @@ const App = () => {
   ];
 
   useEffect(() => {
+    document.title = "Professional Wedding DJ & Event Entertainment in Orlando | BeatLife DJ";
+
     // 1. Optimize Scroll forced-reflows using IntersectionObserver instead of tracking window.scrollY
     const anchor = document.getElementById('scroll-anchor');
     if (anchor) {
@@ -505,7 +507,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
             
             {/* SVG Header Social Bar */}
             <div className="flex items-center gap-4">
-              <a href="https://www.facebook.com/BeatLifeDJ" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
+              <a href="https://www.facebook.com/profile.php?id=100086740441401" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
                 <FacebookIcon className="w-5 h-5" />
               </a>
               <a href="https://www.instagram.com/beatlifedj" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Instagram">
@@ -773,7 +775,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
                 </div>
                 <button 
                   onClick={() => { setIsContactOpen(true); setActiveService(null); }}
-                  className="inline-flex items-center gap-4 text-[11px] font-black uppercase tracking-[0.4em] bg-white text-black px-10 py-5 rounded-full hover:bg-cyan-500 hover:text-white transition-all w-fit shadow-xl mx-auto"
+                  className="inline-flex items-center gap-4 text-sm font-black uppercase tracking-widest bg-white text-black px-8 py-4 rounded-full hover:bg-cyan-500 hover:text-white transition-all w-fit shadow-xl mx-auto"
                 >
                   Inquire for {activeService.title}
                 </button>
@@ -829,7 +831,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
       <section id="tiers" className="scroll-mt-24 py-32 bg-[#0a0a0a] px-6 border-y border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24 space-y-4">
-             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Heart <span className="text-cyan-500 underline decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">Tiers</span></h2>
+             <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter italic leading-none">Heart <span className="text-cyan-500 underline decoration-4 md:decoration-8 underline-offset-4 md:underline-offset-8">Packages</span></h2>
              {/* SUBHEADING REWRITTEN TO "wedding packages designed around your love story" */}
              <p className="text-xs font-black uppercase tracking-[0.4em] text-white/70">wedding packages designed around your love story</p>
           </div>
@@ -922,13 +924,13 @@ Her true superpower is putting brides at ease both before and on their wedding d
 
                 <button 
                   onClick={() => setIsContactOpen(true)}
-                  className={`w-full py-5 rounded-2xl font-[1000] text-[10px] uppercase tracking-[0.3em] transition-all ${
+                  className={`w-full py-4 rounded-2xl font-black text-sm uppercase tracking-widest transition-all ${
                     pkg.featured 
                       ? 'bg-cyan-500 text-black hover:bg-white hover:text-black shadow-lg shadow-cyan-500/20' 
                       : 'bg-white/5 text-white hover:bg-white hover:text-black border border-white/10'
                   }`}
                 >
-                  Verify Date
+                  Book Date
                 </button>
               </div>
             ))}
@@ -1411,7 +1413,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
               
               <button 
                 onClick={() => { setIsContactOpen(true); setActiveTeamMember(null); }}
-                className="inline-flex items-center gap-4 text-[11px] font-black uppercase tracking-[0.4em] bg-white text-black px-10 py-5 rounded-full hover:bg-cyan-500 hover:text-white transition-all w-fit shadow-xl mx-auto"
+                className="inline-flex items-center gap-4 text-sm font-black uppercase tracking-widest bg-white text-black px-8 py-4 rounded-full hover:bg-cyan-500 hover:text-white transition-all w-fit shadow-xl mx-auto"
               >
                 Inquire with {activeTeamMember.name.split(' ')[0]}
               </button>
@@ -1507,7 +1509,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
                      <label className="text-[10px] font-black uppercase tracking-widest text-white/70 italic block mb-3">Additional Comments</label>
                      <textarea name="comments" rows="3" className="w-full bg-transparent outline-none font-black text-xl uppercase tracking-tighter placeholder:text-white/5 resize-none custom-scrollbar" placeholder="ANY SPECIFIC DETAILS OR REQUESTS?"></textarea>
                   </div>
-                  <button type="submit" className="w-full bg-cyan-500 text-white py-8 rounded-[1.5rem] font-black uppercase tracking-[0.4em] text-[11px] hover:bg-white hover:text-black transition-all">
+                  <button type="submit" className="w-full bg-cyan-500 text-white py-6 rounded-[1.5rem] font-black uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all">
                     Transmit Session Request
                   </button>
                </form>
@@ -1529,7 +1531,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
             
             {/* Expanded Footer Social Bar */}
             <div className="flex gap-6 items-center">
-               <a href="https://www.facebook.com/BeatLifeDJ" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
+               <a href="https://www.facebook.com/profile.php?id=100086740441401" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
                   <FacebookIcon className="w-6 h-6" />
                </a>
                <a href="https://www.instagram.com/beatlifedj" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Instagram">
@@ -1574,7 +1576,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
           
           {/* Mobile Social Drawer Group */}
           <div className="absolute bottom-10 flex gap-6 items-center">
-            <a href="https://www.facebook.com/BeatLifeDJ" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
+            <a href="https://www.facebook.com/profile.php?id=100086740441401" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
               <FacebookIcon className="w-6 h-6" />
             </a>
             <a href="https://www.instagram.com/beatlifedj" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Instagram">
