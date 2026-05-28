@@ -184,6 +184,15 @@ const App = () => {
   useEffect(() => {
     document.title = "Professional Wedding DJ & Event Entertainment in Orlando | BeatLife DJ";
 
+    // SEO Optimization: Dynamically inject meta description if missing
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (!metaDescription) {
+      metaDescription = document.createElement('meta');
+      metaDescription.name = "description";
+      document.head.appendChild(metaDescription);
+    }
+    metaDescription.content = "BeatLife DJ provides professional wedding DJ, MC, and event entertainment services in Orlando, Florida. Book Dustin Anderson for an unforgettable experience.";
+
     // 1. Optimize Scroll forced-reflows using IntersectionObserver instead of tracking window.scrollY
     const anchor = document.getElementById('scroll-anchor');
     if (anchor) {
@@ -508,16 +517,16 @@ Her true superpower is putting brides at ease both before and on their wedding d
             
             {/* SVG Header Social Bar */}
             <div className="flex items-center gap-4">
-              <a href="https://www.facebook.com/profile.php?id=100086740441401" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
+              <a href="https://www.facebook.com/profile.php?id=100086740441401" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
                 <FacebookIcon className="w-5 h-5" />
               </a>
-              <a href="https://www.instagram.com/beatlifedj" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Instagram">
+              <a href="https://www.instagram.com/beatlifedj" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Instagram">
                 <InstagramIcon className="w-5 h-5" />
               </a>
-              <a href="https://www.weddingwire.com/biz/the-game-plan-orlando/dceca396dc820257.html" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on WeddingWire">
+              <a href="https://www.weddingwire.com/biz/the-game-plan-orlando/dceca396dc820257.html" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on WeddingWire">
                 <WeddingWireIcon className="w-5 h-5" />
               </a>
-              <a href="https://www.theknot.com/marketplace/beat-life-dj-orlando-fl-2100018#unified-lightbox-modal" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on The Knot">
+              <a href="https://www.theknot.com/marketplace/beat-life-dj-orlando-fl-2100018#unified-lightbox-modal" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on The Knot">
                 <TheKnotIcon className="w-5 h-5" />
               </a>
             </div>
@@ -565,7 +574,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
           />
           
           <div className="flex flex-col items-center">
-            <div className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-xl border border-white/10 px-6 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-3 bg-black/40 backdrop-blur-xl border border-white/10 px-6 py-2 rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-cyan-500" aria-hidden="true" />
               <span className="text-[10px] font-black text-white/90 tracking-[0.3em] uppercase leading-none">Experience 3,000+ Unforgettable Events</span>
             </div>
@@ -576,7 +585,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
             </h1>
 
             {/* TAGLINE UPDATED AS REQUESTED */}
-            <p className="text-lg md:text-2xl font-bold uppercase italic text-white/60 mb-8 max-w-4xl mx-auto leading-tight">
+            <p className="text-lg md:text-2xl font-bold uppercase italic text-white/80 drop-shadow-md mb-8 max-w-4xl mx-auto leading-tight">
               turning events into <span className="text-white">unforgettable experiences</span>
             </p>
 
@@ -961,7 +970,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
               
               {/* Before You Book Video Player */}
               <div className="space-y-4">
-                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-widest italic text-white/40 flex items-center gap-4">
+                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-widest italic text-white/70 flex items-center gap-4">
                   <Film className="w-6 h-6 text-cyan-500" aria-hidden="true" /> Before You Book
                 </h3>
                 <div 
@@ -1000,7 +1009,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
               {/* UPGRADED SLEEK MINI-CAROUSEL GALLERY (Brighter default visibility) */}
               <div className="space-y-6 pt-4">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-widest italic text-white/40 flex items-center gap-4">
+                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-widest italic text-white/70 flex items-center gap-4">
                     <Camera className="w-6 h-6 text-cyan-500" aria-hidden="true" /> Event Gallery
                   </h3>
                 </div>
@@ -1532,23 +1541,23 @@ Her true superpower is putting brides at ease both before and on their wedding d
             
             {/* Expanded Footer Social Bar */}
             <div className="flex gap-6 items-center">
-               <a href="https://www.facebook.com/profile.php?id=100086740441401" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
+               <a href="https://www.facebook.com/profile.php?id=100086740441401" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/70 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Facebook">
                   <FacebookIcon className="w-6 h-6" />
                </a>
-               <a href="https://www.instagram.com/beatlifedj" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Instagram">
+               <a href="https://www.instagram.com/beatlifedj" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/70 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on Instagram">
                   <InstagramIcon className="w-6 h-6" />
                </a>
-               <a href="https://www.weddingwire.com/biz/the-game-plan-orlando/dceca396dc820257.html" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on WeddingWire">
+               <a href="https://www.weddingwire.com/biz/the-game-plan-orlando/dceca396dc820257.html" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/70 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on WeddingWire">
                   <WeddingWireIcon className="w-6 h-6" />
                </a>
-               <a href="https://www.theknot.com/marketplace/beat-life-dj-orlando-fl-2100018#unified-lightbox-modal" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on The Knot">
+               <a href="https://www.theknot.com/marketplace/beat-life-dj-orlando-fl-2100018#unified-lightbox-modal" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center text-white/70 hover:text-cyan-500 transition-colors" aria-label="Visit Beatlife on The Knot">
                   <TheKnotIcon className="w-6 h-6" />
                </a>
             </div>
 
-            <div className="space-y-2 opacity-50">
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] italic leading-none text-white/70">© 2026 The Vision Guided.</p>
-              <p className="text-[8px] font-black uppercase tracking-[0.4em] italic leading-none text-white/70">Orlando / Nationwide</p>
+            <div className="space-y-2">
+              <p className="text-[10px] font-black uppercase tracking-[0.4em] italic leading-none text-white/60">© 2026 The Vision Guided.</p>
+              <p className="text-[8px] font-black uppercase tracking-[0.4em] italic leading-none text-white/60">Orlando / Nationwide</p>
             </div>
          </div>
       </footer>
