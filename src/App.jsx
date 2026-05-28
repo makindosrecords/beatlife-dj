@@ -193,6 +193,37 @@ const App = () => {
     }
     metaDescription.content = "BeatLife DJ provides professional wedding DJ, MC, and event entertainment services in Orlando, Florida. Book Dustin Anderson for an unforgettable experience.";
 
+    // SEO Optimization: Inject LocalBusiness JSON-LD Schema
+    let schemaScript = document.querySelector('script[type="application/ld+json"]');
+    if (!schemaScript) {
+      schemaScript = document.createElement('script');
+      schemaScript.type = 'application/ld+json';
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@type": "EntertainmentBusiness",
+        "name": "BeatLife DJ",
+        "image": "https://www.beatlifedj.com" + ASSETS.HERO_LOGO,
+        "@id": "https://www.beatlifedj.com",
+        "url": "https://www.beatlifedj.com",
+        "telephone": "+1-321-400-3507",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Orlando",
+          "addressRegion": "FL",
+          "addressCountry": "US"
+        },
+        "description": "Professional wedding DJ, MC, and event entertainment services in Orlando, Florida.",
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=100086740441401",
+          "https://www.instagram.com/beatlifedj",
+          "https://www.weddingwire.com/biz/the-game-plan-orlando/dceca396dc820257.html",
+          "https://www.theknot.com/marketplace/beat-life-dj-orlando-fl-2100018"
+        ]
+      };
+      schemaScript.text = JSON.stringify(schemaData);
+      document.head.appendChild(schemaScript);
+    }
+
     // 1. Optimize Scroll forced-reflows using IntersectionObserver instead of tracking window.scrollY
     const anchor = document.getElementById('scroll-anchor');
     if (anchor) {
