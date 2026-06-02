@@ -515,6 +515,15 @@ Her true superpower is putting brides at ease both before and on their wedding d
     }
   };
 
+  // Optional: Track contact form submissions as conversions in Google Ads
+  const handleFormSubmit = () => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-18196802294' // You can append your specific conversion label here later if Google Ads provides one (e.g., AW-18196802294/AbCd-eF_gH)
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden antialiased">
       
@@ -1518,7 +1527,7 @@ Her true superpower is putting brides at ease both before and on their wedding d
             </div>
 
             <div className="lg:w-3/5 p-8 md:p-12 lg:p-16 space-y-8 md:space-y-12">
-               <form action="https://api.web3forms.com/submit" method="POST" className="space-y-8 md:space-y-10">
+               <form action="https://api.web3forms.com/submit" method="POST" className="space-y-8 md:space-y-10" onSubmit={handleFormSubmit}>
                   <input type="hidden" name="access_key" value="c82ba055-610f-4ae9-9a05-b0fe3aafeafe" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
                     <div className="border-b border-white/10 focus-within:border-cyan-500 transition-all py-2">
