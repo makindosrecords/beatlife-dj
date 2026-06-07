@@ -1,6 +1,11 @@
+import { kv } from '@vercel/kv';
+
 export default async function handler(req, res) {
-  // Your new 60-day long-lived token is applied here!
-  const ACCESS_TOKEN = process.env.INSTAGRAM_ACCESS_TOKEN || 'EAAWQLV0A65gBRnkYuOpPXrFT3zXgS6P68NIXtZAZBVyuV9zEC7yqwhT4UZBBXbO4Kvmpk8IHdrhEuUa4N9CCoYx088Xntk0MBhFW4BlVItzwPx0tiMPOZB4fQRY4IBFf8cQrqLNZC6FvoLO9WkZAjVZAWh4hsZB2ZCLBzePtUH3xw3XOJYcAZBHUr1KZBWVaips';
+  // Check the KV database for a refreshed token first, fallback to the environment variable!
+  let ACCESS_TOKEN = await kv.get('INSTAGRAM_ACCESS_TOKEN');
+  if (!ACCESS_TOKEN) {
+    ACCESS_TOKEN = process.env.INSTAGRAM_ACCESS_TOKEN || 'EAAWQLV0A65gBRnkYuOpPXrFT3zXgS6P68NIXtZAZBVyuV9zEC7yqwhT4UZBBXbO4Kvmpk8IHdrhEuUa4N9CCoYx088Xntk0MBhFW4BlVItzwPx0tiMPOZB4fQRY4IBFf8cQrqLNZC6FvoLO9WkZAjVZAWh4hsZB2ZCLBzePtUH3xw3XOJYcAZBHUr1KZBWVaips';
+  }
   const INSTA_ACCOUNT_ID = process.env.INSTAGRAM_USER_ID || '17841456128830489';
 
   try {
