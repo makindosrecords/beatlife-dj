@@ -11,7 +11,13 @@ export default async function handler(req, res) {
 
   try {
     // 1. Get the current active token from KV or Environment
-    let currentToken = await kv.get('INSTAGRAM_ACCESS_TOKEN') || process.env.INSTAGRAM_ACCESS_TOKEN;
+    let currentToken;
+    try {
+      currentToken = await kv.get('INSTAGRAM_ACCESS_TOKEN');
+    } catch (dbError) {
+      console.warn('KV Database not connected.');
+    }
+    currentToken = currentToken || process.env.INSTAGRAM_ACCESS_TOKEN;
 
     if (!currentToken) throw new Error("No token found to refresh.");
 
