@@ -1,4 +1,4 @@
-import { kv } from '@vercel/kv';
+import { createClient } from '@vercel/kv';
 
 export default async function handler(req, res) {
   const INSTA_ACCOUNT_ID = process.env.INSTAGRAM_USER_ID || '17841456128830489';
@@ -8,7 +8,12 @@ export default async function handler(req, res) {
     
     // 1. Safely check the KV database for a refreshed token
     try {
-      ACCESS_TOKEN = await kv.get('INSTAGRAM_ACCESS_TOKEN');
+      const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+      const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+      if (url && token) {
+        const kv = createClient({ url, token });
+        ACCESS_TOKEN = await kv.get('INSTAGRAM_ACCESS_TOKEN');
+      }
     } catch (dbError) {
       console.warn('KV Database not connected. Falling back to env vars.');
     }

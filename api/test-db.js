@@ -1,7 +1,13 @@
-import { kv } from '@vercel/kv';
+import { createClient } from '@vercel/kv';
 
 export default async function handler(req, res) {
   try {
+    const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+    const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+    
+    if (!url || !token) throw new Error("Missing Upstash DB variables in Vercel.");
+    const kv = createClient({ url, token });
+
     // 1. Write a test key to the Redis database
     await kv.set('test_connection', 'Database is successfully connected and writing!');
 

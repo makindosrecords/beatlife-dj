@@ -1,4 +1,4 @@
-import { kv } from '@vercel/kv';
+import { createClient } from '@vercel/kv';
 
 export default async function handler(req, res) {
   // Secure the endpoint so only Vercel Cron can call it
@@ -10,10 +10,16 @@ export default async function handler(req, res) {
   }
 
   try {
+    const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+    const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+    const kv = (url && token) ? createClient({ url, token }) : null;
+
     // 1. Get the current active token from KV or Environment
     let currentToken;
     try {
-      currentToken = await kv.get('INSTAGRAM_ACCESS_TOKEN');
+      if (kv) {
+        currentToken = await kv.get('INSTAGRAM_ACCESS_TOKEN');
+      }
     } catch (dbError) {
       console.warn('KV Database not connected.');
     }
@@ -35,7 +41,9 @@ export default async function handler(req, res) {
     if (!metaRes.ok) throw new Error(data.error?.message || 'Failed to refresh token from Meta');
 
     // 3. Save the new 60-day token to our Vercel KV Database
-    await kv.set('INSTAGRAM_ACCESS_TOKEN', data.access_token);
+    if (kv) {
+      await kv.set('INSTAGRAM_ACCESS_TOKEN', data.access_token);
+    }
 
     return res.status(200).json({ success: true, message: "Token refreshed successfully!", token_preview: data.access_token.slice(0, 10) + '...' });
   } catch (error) {
