@@ -45,7 +45,7 @@ const InstagramFeed = () => {
                  <img src={post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url} alt={post.caption || 'Instagram Post'} className={`relative z-10 w-full h-full object-cover transition-all duration-700 ${post.media_type === 'VIDEO' ? 'opacity-80 group-hover:opacity-0' : 'opacity-80 group-hover:opacity-100 group-hover:scale-110'}`} loading="lazy" />
                  
                  {post.media_type === 'VIDEO' && (
-                   <video src={post.media_url} className="absolute inset-0 w-full h-full object-cover z-0" muted loop playsInline />
+                   <video src={post.media_url} preload="none" className="absolute inset-0 w-full h-full object-cover z-0" muted loop playsInline />
                  )}
 
                  {post.media_type === 'VIDEO' && (

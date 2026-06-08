@@ -18,31 +18,6 @@ const App = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   useEffect(() => {
-    // 2. Preload LCP critical logo
-    const preloadLogo = document.createElement('link');
-    preloadLogo.rel = 'preload';
-    preloadLogo.as = 'image';
-    preloadLogo.href = ASSETS.HERO_LOGO;
-    preloadLogo.fetchPriority = 'high';
-    document.head.appendChild(preloadLogo);
-
-    // 3. Inject Preconnect endpoints to optimize LCP discovery delay
-    const preconnectYT = document.createElement('link');
-    preconnectYT.rel = 'preconnect';
-    preconnectYT.href = 'https://img.youtube.com';
-
-    const dnsPrefetchYT = document.createElement('link');
-    dnsPrefetchYT.rel = 'dns-prefetch';
-    dnsPrefetchYT.href = 'https://img.youtube.com';
-
-    document.head.appendChild(preconnectYT);
-    document.head.appendChild(dnsPrefetchYT);
-
-    return () => {
-      document.head.removeChild(preloadLogo);
-      document.head.removeChild(preconnectYT);
-      document.head.removeChild(dnsPrefetchYT);
-    };
   }, []);
 
   // Optimize scrolling offset reflows using native browser behavior without querying geometry parameters in JS
