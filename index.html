@@ -9,6 +9,9 @@
     <!-- LCP Optimization: Preload Hero Logo immediately -->
     <link rel="preload" href="/images/beatlife_logo.svg" as="image" fetchpriority="high" />
     
+    <!-- Establish early connections to third-party domains -->
+    <link rel="preconnect" href="https://img.youtube.com" />
+    
     <!-- Google tag (gtag.js) -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -16,10 +19,14 @@
       gtag('js', new Date());
       gtag('config', 'AW-18196802294');
 
-      window.addEventListener('load', function() {
-        var script = document.createElement('script');
-        script.src = "https://www.googletagmanager.com/gtag/js?id=AW-18196802294";
-        document.head.appendChild(script);
+      ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function(e) {
+        window.addEventListener(e, function loadGTM() {
+          if (window.gtmLoaded) return;
+          window.gtmLoaded = true;
+          var script = document.createElement('script');
+          script.src = "https://www.googletagmanager.com/gtag/js?id=AW-18196802294";
+          document.head.appendChild(script);
+        }, { once: true });
       });
     </script>
   </head>

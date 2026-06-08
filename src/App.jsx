@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { ASSETS } from './data/constants';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -6,12 +6,13 @@ import HeroSection from './components/sections/HeroSection';
 import ShowcaseSection from './components/sections/ShowcaseSection';
 import ServicesSection from './components/sections/ServicesSection';
 import TiersSection from './components/sections/TiersSection';
-import CompanySection from './components/sections/CompanySection';
-import TeamSection from './components/sections/TeamSection';
-import ReviewsSection from './components/sections/ReviewsSection';
-import InstagramFeed from './components/sections/InstagramFeed';
-import ContactModal from './components/ui/ContactModal';
 import { useAppSetup } from './utils/useAppSetup';
+
+const CompanySection = lazy(() => import('./components/sections/CompanySection'));
+const TeamSection = lazy(() => import('./components/sections/TeamSection'));
+const ReviewsSection = lazy(() => import('./components/sections/ReviewsSection'));
+const InstagramFeed = lazy(() => import('./components/sections/InstagramFeed'));
+const ContactModal = lazy(() => import('./components/ui/ContactModal'));
 
 const App = () => {
   const { scrolled } = useAppSetup();
@@ -42,17 +43,17 @@ const App = () => {
       <ServicesSection onOpenContact={() => setIsContactOpen(true)} />
       <TiersSection onOpenContact={() => setIsContactOpen(true)} />
 
-      <CompanySection />
+      <Suspense fallback={<div className="min-h-screen bg-black"></div>}>
+        <CompanySection />
+        <TeamSection onOpenContact={() => setIsContactOpen(true)} />
+        <ReviewsSection />
 
-      <TeamSection onOpenContact={() => setIsContactOpen(true)} />
+        {isContactOpen && (
+          <ContactModal onClose={() => setIsContactOpen(false)} />
+        )}
 
-      <ReviewsSection />
-
-      {isContactOpen && (
-        <ContactModal onClose={() => setIsContactOpen(false)} />
-      )}
-
-      <InstagramFeed />
+        <InstagramFeed />
+      </Suspense>
 
       <Footer />
 
