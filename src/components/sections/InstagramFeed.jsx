@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Film } from 'lucide-react';
 import { InstagramIcon } from '../ui/Icons';
 
 const InstagramFeed = () => {
   const [instagramPosts, setInstagramPosts] = useState([]);
   const [igLoading, setIgLoading] = useState(true);
+  const observerRef = useRef(null);
 
   useEffect(() => {
     const fetchInstagram = async () => {
@@ -20,11 +21,24 @@ const InstagramFeed = () => {
         setIgLoading(false);
       }
     };
-    fetchInstagram();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          fetchInstagram();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '600px' }
+    );
+
+    if (observerRef.current) observer.observe(observerRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="socials" className="py-32 bg-black px-6 border-t border-white/5 relative">
+    <section id="socials" ref={observerRef} className="py-32 bg-black px-6 border-t border-white/5 relative">
       <div className="max-w-[1600px] mx-auto">
         <div className="text-center mb-16 space-y-4">
            <div className="inline-flex items-center gap-3 text-cyan-500">
