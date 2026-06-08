@@ -50,6 +50,7 @@ const CompanySection = () => {
                     onError={handleImgError}
                     width="480"
                     height="360"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-transparent group-hover:bg-black/10 transition-colors duration-500">
                     <div className="w-20 h-20 rounded-full border border-white/40 bg-black/50 backdrop-blur-[2px] flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-500 transition-all duration-500 shadow-lg shadow-cyan-500/10">
@@ -74,6 +75,7 @@ const CompanySection = () => {
                     onError={handleImgError}
                     width="640"
                     height="360"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                   
@@ -133,7 +135,7 @@ const CompanySection = () => {
           </button>
 
           <div className="relative max-w-5xl w-full flex flex-col items-center justify-center z-10 animate-in zoom-in-95 duration-500">
-            <img src={GALLERY_ITEMS[lightboxIndex].url} alt={`${GALLERY_ITEMS[lightboxIndex].title} - expanded view`} className="w-full max-h-[70vh] aspect-video rounded-3xl object-cover border border-white/10 shadow-2xl" onError={handleImgError} width="1000" height="600" />
+            <img src={GALLERY_ITEMS[lightboxIndex].url} alt={`${GALLERY_ITEMS[lightboxIndex].title} - expanded view`} className="w-full max-h-[70vh] aspect-video rounded-3xl object-cover border border-white/10 shadow-2xl" onError={handleImgError} width="1000" height="600" loading="lazy" />
             <div className="mt-6 text-center space-y-2 max-w-2xl px-6">
               <span className="text-[10px] font-black uppercase tracking-widest text-cyan-400">{GALLERY_ITEMS[lightboxIndex].category}</span>
               <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white">{GALLERY_ITEMS[lightboxIndex].title}</h3>

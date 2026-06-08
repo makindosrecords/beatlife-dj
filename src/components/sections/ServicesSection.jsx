@@ -34,6 +34,7 @@ const ServicesSection = ({ onOpenContact }) => {
                       alt={`${service.title} capabilities preview thumbnail`}
                       width="640"
                       height="480"
+                      loading="lazy"
                       onError={handleImgError}
                     />
                   ) : (
@@ -77,7 +78,7 @@ const ServicesSection = ({ onOpenContact }) => {
                   
                   {activeService.headset && (
                     <div className="w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center p-4 shadow-2xl shrink-0 mt-2 transition-all duration-500 hover:scale-110 hover:border-cyan-500/80 hover:rotate-6 hover:shadow-[0_0_35px_rgba(34,211,238,0.25)] group/modalset">
-                      <img src={activeService.headset} className="w-full h-full object-contain filter drop-shadow-[0_6px_16px_rgba(34,211,238,0.3)]" alt={`${activeService.title} headphone emblem icon`} width="112" height="112" />
+                      <img src={activeService.headset} className="w-full h-full object-contain filter drop-shadow-[0_6px_16px_rgba(34,211,238,0.3)]" alt={`${activeService.title} headphone emblem icon`} width="112" height="112" loading="lazy" />
                     </div>
                   )}
                   
@@ -109,7 +110,7 @@ const ServicesSection = ({ onOpenContact }) => {
                 ) : activeService.thumbnail ? (
                   <div className="w-full h-full min-h-[400px] flex items-center justify-center bg-black p-6">
                     <div className="relative w-full max-w-lg aspect-square rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl">
-                      <img src={activeService.thumbnail} alt={`${activeService.title} presentation image`} className="w-full h-full object-cover opacity-95 transition-transform duration-1000" onError={handleImgError} width="500" height="500" />
+                      <img src={activeService.thumbnail} alt={`${activeService.title} presentation image`} className="w-full h-full object-cover opacity-95 transition-transform duration-1000" onError={handleImgError} width="500" height="500" loading="lazy" />
                     </div>
                   </div>
                 ) : (
@@ -117,7 +118,7 @@ const ServicesSection = ({ onOpenContact }) => {
                      <div className="absolute w-[300px] h-[300px] rounded-full bg-cyan-500/10 blur-[100px] -top-10 -left-10 pointer-events-none"></div>
                      <div className="absolute w-[400px] h-[400px] rounded-full bg-cyan-500/5 blur-[120px] -bottom-20 -right-20 pointer-events-none"></div>
                      <div className="relative flex items-center justify-center w-40 h-40 mb-8 rounded-3xl bg-neutral-900 border border-white/10 text-cyan-400 shadow-2xl transform hover:scale-105 transition-transform duration-500">{activeService.icon}</div>
-                     <img src={ASSETS.NAV_TEXT} className="w-64 opacity-25 grayscale hover:opacity-45 hover:grayscale-0 transition-all duration-500" alt="Beatlife Text brand logo" width="300" height="60" />
+                     <img src={ASSETS.NAV_TEXT} className="w-64 opacity-25 grayscale hover:opacity-45 hover:grayscale-0 transition-all duration-500" alt="Beatlife Text brand logo" width="300" height="60" loading="lazy" />
                   </div>
                 )}
               </div>

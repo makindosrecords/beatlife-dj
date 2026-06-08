@@ -13,9 +13,9 @@ const TeamSection = ({ onOpenContact }) => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
             <div className="lg:col-span-5 relative group sticky top-28">
                <div className="absolute inset-0 -rotate-2 grayscale opacity-20 transition-all group-hover:rotate-0">
-                  <img src={ASSETS.DUSTIN_STORY} className="w-full h-full object-cover rounded-[2.5rem]" alt="Heritage background visual" onError={handleImgError} width="800" height="1000" />
+                  <img src={ASSETS.DUSTIN_STORY} className="w-full h-full object-cover rounded-[2.5rem]" alt="Heritage background visual" onError={handleImgError} width="800" height="1000" loading="lazy" />
                </div>
-               <img src={ASSETS.DUSTIN_PROFILE} className="relative z-10 w-[95%] mx-auto rounded-[3rem] shadow-2xl contrast-110 border border-white/5" alt="Dustin Anderson founder portrait" onError={handleImgError} width="800" height="1000" />
+               <img src={ASSETS.DUSTIN_PROFILE} className="relative z-10 w-[95%] mx-auto rounded-[3rem] shadow-2xl contrast-110 border border-white/5" alt="Dustin Anderson founder portrait" onError={handleImgError} width="800" height="1000" loading="lazy" />
                <div className="absolute -bottom-8 -right-8 bg-white p-10 rounded-[2.5rem] shadow-2xl text-black z-20 rotate-3">
                   <p className="text-[10px] font-black uppercase tracking-draw opacity-70 italic leading-none">The Founder</p>
                   <h3 className="text-3xl font-black tracking-tighter uppercase italic leading-[0.8] mt-2">Dustin <br/> Anderson</h3>
@@ -62,7 +62,7 @@ const TeamSection = ({ onOpenContact }) => {
               {team.map((member, idx) => (
                 <div key={idx} className="group relative flex flex-col justify-start rounded-[2.5rem] border border-white/5 bg-neutral-950/80 hover:border-cyan-500/30 transition-all duration-700 p-8 space-y-6 cursor-pointer" onClick={() => setActiveTeamMember(member)}>
                   <div className="aspect-square w-full rounded-2xl overflow-hidden bg-neutral-900 border border-white/5 relative group-hover:border-cyan-500/30 transition-all duration-500">
-                    <img src={member.img} alt={`${member.name} - ${member.role} headshot`} onError={handleImgError} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" width="350" height="350" />
+                  <img src={member.img} alt={`${member.name} - ${member.role} headshot`} onError={handleImgError} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" width="350" height="350" loading="lazy" />
                   </div>
                   <div className="space-y-1.5 text-left">
                     <span className="text-[10px] font-black uppercase tracking-widest text-cyan-500/80 block italic">{member.role}</span>
@@ -94,7 +94,7 @@ const TeamSection = ({ onOpenContact }) => {
                   <span className="text-xs md:text-sm font-black uppercase tracking-[0.2em] text-cyan-500 block italic">{activeTeamMember.role}</span>
                 </div>
                 <div className="w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center p-4 shadow-2xl shrink-0 mt-2 transition-all duration-500 hover:scale-110 hover:border-cyan-500/80 hover:rotate-6 hover:shadow-[0_0_35px_rgba(34,211,238,0.25)] group/modalset">
-                  <img src={ASSETS.ICONS.SINGLE} className="w-full h-full object-contain filter drop-shadow-[0_6px_16px_rgba(34,211,238,0.3)] transition-transform duration-500 group-hover/modalset:scale-105" alt="Single Headphone Icon" width="112" height="112" />
+                  <img src={ASSETS.ICONS.SINGLE} className="w-full h-full object-contain filter drop-shadow-[0_6px_16px_rgba(34,211,238,0.3)] transition-transform duration-500 group-hover/modalset:scale-105" alt="Single Headphone Icon" width="112" height="112" loading="lazy" />
                 </div>
                 <div className="text-base md:text-lg text-white/70 font-medium leading-relaxed whitespace-pre-line max-h-[40vh] overflow-y-auto pr-4 custom-scrollbar text-left w-full mt-4">{activeTeamMember.bio}</div>
               </div>
@@ -102,7 +102,7 @@ const TeamSection = ({ onOpenContact }) => {
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2 bg-neutral-900 border-b lg:border-b-0 lg:border-l border-white/5">
               <div className="w-full h-full aspect-square lg:aspect-auto flex items-center justify-center bg-black p-6">
-                <div className="relative w-full max-w-lg aspect-square rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl"><img src={activeTeamMember.img} alt={`${activeTeamMember.name} portrait expanded view`} className="w-full h-full object-cover opacity-90 transition-transform duration-1000" onError={handleImgError} width="500" height="500" /></div>
+                <div className="relative w-full max-w-lg aspect-square rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl"><img src={activeTeamMember.img} alt={`${activeTeamMember.name} portrait expanded view`} className="w-full h-full object-cover opacity-90 transition-transform duration-1000" onError={handleImgError} width="500" height="500" loading="lazy" /></div>
               </div>
             </div>
           </div>
