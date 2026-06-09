@@ -11,12 +11,12 @@ const TeamSection = ({ onOpenContact }) => {
       <section id="about" className="scroll-mt-24 py-32 px-6 bg-[#050505] border-b border-white/5">
         <div className="max-w-7xl mx-auto space-y-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
-            <div className="lg:col-span-5 relative group sticky top-28">
+            <div className="lg:col-span-5 relative group lg:sticky lg:top-28 max-w-[260px] sm:max-w-xs md:max-w-md mx-auto lg:max-w-none w-full mb-8 lg:mb-0">
                <div className="absolute inset-0 -rotate-2 grayscale opacity-20 transition-all group-hover:rotate-0">
                   <img src={ASSETS.DUSTIN_STORY} className="w-full h-full object-cover rounded-[2.5rem]" alt="Heritage background visual" onError={handleImgError} width="800" height="1000" loading="lazy" />
                </div>
                <img src={ASSETS.DUSTIN_PROFILE} className="relative z-10 w-[95%] mx-auto rounded-[3rem] shadow-2xl contrast-110 border border-white/5" alt="Dustin Anderson founder portrait" onError={handleImgError} width="800" height="1000" loading="lazy" />
-               <div className="absolute -bottom-8 -right-8 bg-white p-10 rounded-[2.5rem] shadow-2xl text-black z-20 rotate-3">
+               <div className="absolute -bottom-6 -right-4 md:-bottom-8 md:-right-8 bg-white p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl text-black z-20 rotate-3">
                   <p className="text-[10px] font-black uppercase tracking-draw opacity-70 italic leading-none">The Founder</p>
                   <h3 className="text-3xl font-black tracking-tighter uppercase italic leading-[0.8] mt-2">Dustin <br/> Anderson</h3>
                </div>
@@ -58,9 +58,9 @@ const TeamSection = ({ onOpenContact }) => {
               <p className="text-base md:text-lg text-white/70 uppercase italic max-w-2xl mx-auto">The elite forces driving seamless planning, absolute trust, and high-energy show execution.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
               {team.map((member, idx) => (
-                <div key={idx} className="group relative flex flex-col justify-start rounded-[2.5rem] border border-white/5 bg-neutral-950/80 hover:border-cyan-500/30 transition-all duration-700 p-8 space-y-6 cursor-pointer" onClick={() => setActiveTeamMember(member)}>
+                <div key={idx} className="group relative flex flex-col justify-start rounded-[2.5rem] border border-white/5 bg-neutral-950/80 hover:border-cyan-500/30 transition-all duration-700 p-8 space-y-6 cursor-pointer max-w-sm mx-auto sm:max-w-none w-full" onClick={() => setActiveTeamMember(member)}>
                   <div className="aspect-square w-full rounded-2xl overflow-hidden bg-neutral-900 border border-white/5 relative group-hover:border-cyan-500/30 transition-all duration-500">
                   <img src={member.img} alt={`${member.name} - ${member.role} headshot`} onError={handleImgError} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" width="350" height="350" loading="lazy" />
                   </div>

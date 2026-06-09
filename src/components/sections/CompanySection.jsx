@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Users, Film, Play, Camera, ChevronLeft, ChevronRight, Eye, X } from 'lucide-react';
+import { Users, Film, Play, Camera, ChevronLeft, ChevronRight, Eye, X, Check } from 'lucide-react';
 import { ASSETS, GALLERY_ITEMS } from '../../data/constants';
 import { handleImgError } from '../../utils/helpers';
 
 const CompanySection = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [isBeforeBookOpen, setIsBeforeBookOpen] = useState(false);
 
   const handleNextCarousel = () => setCarouselIndex((prev) => (prev + 1) % GALLERY_ITEMS.length);
   const handlePrevCarousel = () => setCarouselIndex((prev) => (prev - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length);
@@ -41,7 +42,7 @@ const CompanySection = () => {
                 </h3>
                 <div 
                   className="aspect-video w-full rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl relative group cursor-pointer"
-                  onClick={() => window.open(`https://youtube.com/watch?v=${ASSETS.BEFORE_BOOK_YT}`, '_blank')}
+                  onClick={() => setIsBeforeBookOpen(true)}
                 >
                   <img 
                     src={`https://img.youtube.com/vi/${ASSETS.BEFORE_BOOK_YT}/hqdefault.jpg`} 
@@ -121,6 +122,47 @@ const CompanySection = () => {
           </div>
         </div>
       </section>
+
+      {isBeforeBookOpen && (
+        <div className="fixed inset-0 z-[600] flex items-center justify-center p-4 md:p-12">
+          <div className="absolute inset-0 bg-black/98 backdrop-blur-2xl animate-fade-in" onClick={() => setIsBeforeBookOpen(false)}></div>
+          
+          <div className="relative w-full max-w-7xl bg-[#0a0a0a] border border-white/10 rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row animate-in zoom-in-95 duration-500 max-h-[95vh] overflow-y-auto">
+            <button onClick={() => setIsBeforeBookOpen(false)} className="absolute top-8 right-8 z-50 w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-cyan-500 hover:text-black transition-all" aria-label="Close details modal">
+                <X className="w-6 h-6" aria-hidden="true" />
+            </button>
+
+            <div className="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center space-y-8 order-2 lg:order-1 bg-[#0a0a0a] text-center">
+              <div className="space-y-6 flex flex-col items-center">
+                <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter italic leading-none text-white w-full text-center">Before You Book</h2>
+                
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center p-4 shadow-2xl shrink-0 mt-2 transition-all duration-500 hover:scale-110 hover:border-cyan-500/80 hover:rotate-6 hover:shadow-[0_0_35px_rgba(34,211,238,0.25)] group/modalset">
+                  <img src={ASSETS.ICONS.SINGLE} className="w-full h-full object-contain filter drop-shadow-[0_6px_16px_rgba(34,211,238,0.3)]" alt="Before You Book headphone emblem icon" width="112" height="112" loading="lazy" />
+                </div>
+                
+                <div className="text-base md:text-lg text-white/70 font-medium leading-relaxed whitespace-pre-line max-h-[40vh] overflow-y-auto pr-4 custom-scrollbar text-left w-full mt-4 space-y-6">
+                  <div className="py-6 border-t border-white/10 w-full text-left my-4">
+                    <p className="text-xs font-black tracking-[0.3em] text-cyan-500 uppercase mb-4 italic">Services include:</p>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {['Professional DJs and MCs', 'Sound and Lighting Production', 'Uplighting and Special Effects', 'Photo Booths', 'Interactive Games and Group Dancing', 'Customized Entertainment Experiences'].map((item, itemIdx) => (
+                        <li key={itemIdx} className="flex items-start gap-3 text-xs md:text-sm font-bold text-white/80 uppercase tracking-wide leading-tight">
+                          <Check className="w-4 h-4 text-cyan-500 shrink-0 mt-0.5" aria-hidden="true" /><span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:w-1/2 order-1 lg:order-2 bg-neutral-900 border-b lg:border-b-0 lg:border-l border-white/5">
+              <div className="w-full h-full aspect-video lg:aspect-auto flex items-center bg-black">
+                <iframe className="w-full h-full min-h-[400px]" src={`https://www.youtube.com/embed/${ASSETS.BEFORE_BOOK_YT}?autoplay=1&controls=1&modestbranding=1&rel=0`} frameBorder="0" allow="autoplay; encrypted-media; fullscreen" allowFullScreen title="Before You Book performance reel" />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {lightboxIndex !== null && (
         <div className="fixed inset-0 z-[600] flex items-center justify-center p-4 md:p-12">
