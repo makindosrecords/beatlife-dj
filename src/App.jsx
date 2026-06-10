@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { ASSETS } from './data/constants';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -13,6 +14,69 @@ const TeamSection = lazy(() => import('./components/sections/TeamSection'));
 const ReviewsSection = lazy(() => import('./components/sections/ReviewsSection'));
 const InstagramFeed = lazy(() => import('./components/sections/InstagramFeed'));
 const ContactModal = lazy(() => import('./components/ui/ContactModal'));
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": [
+    "EntertainmentBusiness",
+    "LocalBusiness"
+  ],
+  "@id": "https://www.beatlifedj.com/#entertainmentbusiness",
+  "name": "BeatLife DJ",
+  "url": "https://www.beatlifedj.com",
+  "logo": "https://www.beatlifedj.com" + ASSETS.HERO_LOGO,
+  "image": "https://www.beatlifedj.com" + ASSETS.HERO_LOGO,
+  "telephone": "+1-321-400-3507",
+  "priceRange": "$$$",
+  "description": "Professional wedding DJ, master of ceremonies hosting, luxury event entertainment, and custom uplighting services in Orlando and the Central Florida area.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Orlando",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "28.538336",
+    "longitude": "-81.379234"
+  },
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Orlando" },
+    { "@type": "AdministrativeArea", "name": "Central Florida" },
+    { "@type": "AdministrativeArea", "name": "Winter Park" }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=100086740441401",
+    "https://www.instagram.com/beatlifedj",
+    "https://www.weddingwire.com/biz/the-game-plan-orlando/dceca396dc820257.html",
+    "https://www.theknot.com/marketplace/beat-life-dj-orlando-fl-2100018",
+    "https://maps.google.com/?cid=12147326463996504230"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "DJ and Event Production Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Wedding DJ Service",
+          "description": "Professional mobile disc jockey and master of ceremonies hosting for wedding ceremonies and receptions.",
+          "sameAs": "https://en.wikipedia.org/wiki/Disc_jockey"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Event Uplighting & Production",
+          "description": "Custom interior room venue uplighting, wireless dance floor effect lighting, and high-fidelity sound reinforcement.",
+          "sameAs": "https://en.wikipedia.org/wiki/DJ_lighting"
+        }
+      }
+    ]
+  }
+};
 
 const App = () => {
   const { scrolled } = useAppSetup();
@@ -32,6 +96,14 @@ const App = () => {
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden antialiased">
       
+      <Helmet>
+        <title>Professional Wedding DJ & Event Entertainment in Orlando | BeatLife DJ</title>
+        <meta name="description" content="BeatLife DJ provides professional wedding DJ, MC, and event entertainment services in Orlando, Florida. Book Dustin Anderson for an unforgettable experience." />
+        <script type="application/ld+json">
+          {JSON.stringify(schemaData)}
+        </script>
+      </Helmet>
+
       {/* Scroll anchor target observed by event observer to prevent scroll layout thrashing */}
       <div id="scroll-anchor" className="absolute top-0 left-0 w-full h-1 pointer-events-none"></div>
 
