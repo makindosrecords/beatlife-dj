@@ -97,7 +97,7 @@ const App = () => {
     <div className="min-h-screen bg-black text-white font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden antialiased">
       
       <Helmet>
-        <title>Professional Wedding DJ & Event Entertainment in Orlando | BeatLife DJ</title>
+        <title>BeatLife DJ | Premier Orlando Wedding & Event DJ</title>
         <meta name="description" content="BeatLife DJ provides professional wedding DJ, MC, and event entertainment services in Orlando, Florida. Book Dustin Anderson for an unforgettable experience." />
         <script type="application/ld+json">
           {JSON.stringify(schemaData)}
