@@ -99,6 +99,19 @@ const App = () => {
       <Helmet>
         <title>BeatLife DJ | Premier Orlando Wedding & Event DJ</title>
         <meta name="description" content="BeatLife DJ provides professional wedding DJ, MC, and event entertainment services in Orlando, Florida. Book Dustin Anderson for an unforgettable experience." />
+        <link rel="canonical" href="https://www.beatlifedj.com/" />
+        
+        {/* Open Graph / Facebook / iMessage */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.beatlifedj.com/" />
+        <meta property="og:title" content="BeatLife DJ | Premier Orlando Wedding & Event DJ" />
+        <meta property="og:description" content="Professional wedding DJ, master of ceremonies hosting, and luxury event entertainment in Orlando, Florida." />
+        <meta property="og:image" content={`https://www.beatlifedj.com${ASSETS.SIDE_LOGO}`} />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={`https://www.beatlifedj.com${ASSETS.SIDE_LOGO}`} />
+
         <script type="application/ld+json">
           {JSON.stringify(schemaData)}
         </script>

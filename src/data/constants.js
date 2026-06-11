@@ -2,6 +2,7 @@
 export const ASSETS = {
   NAV_HEART: '/images/beatlife_heart.svg',
   NAV_TEXT: '/images/Beatlife_text_only.svg',
+  SIDE_LOGO: '/images/Beatlife_side_logo.svg',
   HERO_LOGO: '/images/beatlife_logo.svg', 
   HERO_VIDEO: '/images/hero-dance-loop.mp4', 
   SHOWCASE_VIDEO: '/images/Welcome-to-Beatlife.mp4',
