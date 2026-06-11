@@ -106,11 +106,11 @@ const App = () => {
         <meta property="og:url" content="https://www.beatlifedj.com/" />
         <meta property="og:title" content="BeatLife DJ | Premier Orlando Wedding & Event DJ" />
         <meta property="og:description" content="Professional wedding DJ, master of ceremonies hosting, and luxury event entertainment in Orlando, Florida." />
-        <meta property="og:image" content={`https://www.beatlifedj.com${ASSETS.SIDE_LOGO}`} />
+        <meta property="og:image" content={`https://www.beatlifedj.com${ASSETS.HERO_LOGO}`} />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={`https://www.beatlifedj.com${ASSETS.SIDE_LOGO}`} />
+        <meta name="twitter:image" content={`https://www.beatlifedj.com${ASSETS.HERO_LOGO}`} />
 
         <script type="application/ld+json">
           {JSON.stringify(schemaData)}
